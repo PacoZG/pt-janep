@@ -1,0 +1,71 @@
+#!/bin/sh
+
+END='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+BLUE='\033[01;34m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+ITALIC="\x1b[3m "
+BLINKING="\x1b[5m"
+INVERTED="\x1b[7m"
+
+clear
+
+printf "${BOLD}Running pre-push checks...${END}\n\n"
+
+echo "${ITALIC}Checking that there's no uncommitted files...${END} ⚒️⚒️⚒️"
+echo ""
+uncommitted_files=$( git status --short | wc -l )
+if [ $uncommitted_files -gt 0 ] ; then
+    echo "${RED}You have uncommitted files${END}! 💩💩💩"
+    echo ""
+    exit 1
+fi
+echo "${GREEN}All files are commited${END}!"
+echo ""
+
+echo "${ITALIC}Verifying linting...${END} ⚒️⚒️⚒️"
+npm run lint
+LINTER_EXIT_CODE=$?
+
+# check linter exit code
+if [ $LINTER_EXIT_CODE -ne 0 ]; then
+  echo "${RED}Please fix the linting errors${END}! 💩💩💩"
+  exit 1
+else
+  echo "${GREEN}Linting all good${END}! 👍"
+fi
+
+echo
+echo "${ITALIC}Verifying code style${END} ✨✨✨"
+npm run verify-code-style
+FORMAT_EXIT_CODE=$?
+
+# check linter exit code
+if [ $FORMAT_EXIT_CODE -ne 0 ]; then
+  echo "${RED}Please fix the code style${END}! 💩💩💩."
+  exit 1
+else
+  echo "${GREEN}Code style is all good${END}! 👍"
+fi
+
+echo "Running tests"
+
+npm test
+
+VITEST_EXIT_CODE=$?
+if [ $VITEST_EXIT_CODE -ne 0 ]; then
+  echo "${RED}Please fix the broken tests${END}! 💩💩💩"
+  exit 1
+else
+  echo "${GREEN}Tests all good${END}! 👍"
+fi
+
+# return 0-exit code
+echo "🎉 ${BLUE}You are a rockstar!!!${END} 🎸🎸🎸"
+exit 0

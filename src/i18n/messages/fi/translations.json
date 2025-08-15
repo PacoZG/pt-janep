@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "Minusta",
+    "services": "Palvelut",
+    "programs": "Ohjelmat",
+    "pricing": "Hinnasto",
+    "faq": "UKK",
+    "contact": "Yhteys"
+  },
+  "hero": {
+    "kicker": "Henkilökohtainen valmennus · Terveysvalmennus · Ryhmäliikunta",
+    "title": "Vahvempi keho. Parempi arki.",
+    "subtitle": "Moi! Olen Jane Pokkinen — personal trainer, terveysvalmentaja ja ryhmäliikunnanohjaaja. 13 vuoden kokemus kolmessa maassa. Autan sinua rakentamaan voimaa, itsevarmuutta ja energiaa arkeen.",
+    "ctaPrimary": "Varaa maksuton tutustuminen",
+    "ctaSecondary": "Katso ohjelmat",
+    "trust1": "13+ vuotta kokemusta",
+    "trust2": "Satoja valmennettavia",
+    "trust3": "Lempeän vahva — huumorilla"
+  },
+  "about": {
+    "title": "Valmennus joka kohtaa sinut oikealla tasolla",
+    "subtitle": "Elämäntapamuutos, terveyshaasteet tai kadonnut treenifiilis — valmennan kokonaisvaltaisesti. Kuuntelen kun tarvitset kuuntelijaa, potkin lempeästi kun tarvitset tsemppiä.",
+    "bullets": [
+      "Voima- ja toiminnallinen harjoittelu arkea varten",
+      "Vaihdevuosiystävällinen harjoittelu ja palautuminen",
+      "IBS-ystävällinen & Low-FODMAP-ruokavalio (maidottomat vaihtoehdot)",
+      "Unihabat – kohti luonnollisempaa unta pitkällä aikavälillä",
+      "Itseluottamus takaisin vamman jälkeen käytännöllisin askelin (NLP-lähestymistapa)"
+    ]
+  },
+  "services": {
+    "title": "Palvelut",
+    "subtitle": "Valitse arkeesi sopiva tapa treenata.",
+    "items": [
+      {
+        "icon": "Dumbbell",
+        "title": "1:1 Henkilökohtainen valmennus",
+        "desc": "Räätälöity treeni livenä tai etänä. Tekniikka, eteneminen, vastuu."
+      },
+      {
+        "icon": "Users",
+        "title": "Pienryhmät & bootcampit",
+        "desc": "Energiaa ja edistystä fiksuilla progressioilla ja yhteisöllisyydellä."
+      },
+      {
+        "icon": "HeartPulse",
+        "title": "Rohkeus takaisin vamman jälkeen",
+        "desc": "Silta fysioterapian jälkeen. Opitaan luottamaan kehoon askel kerrallaan."
+      },
+      {
+        "icon": "Salad",
+        "title": "Ravitsemusvalmennus",
+        "desc": "Low-FODMAP & maidottomat vaihtoehdot. Käytännöllinen meal prep kiireiseen arkeen."
+      },
+      {
+        "icon": "Sparkles",
+        "title": "Vaihdevuosivalmennus",
+        "desc": "Voimaa, palautumista ja arjen rutiineja hormonimuutokset huomioiden."
+      },
+      {
+        "icon": "BookOpen",
+        "title": "Työpajat & yrityksille",
+        "desc": "Innostavat luennot ja liikuntahetket työhyvinvointiin."
+      }
+    ]
+  },
+  "programs": {
+    "title": "Suositut kokonaisuudet",
+    "subtitle": "Toimivat rakenteet, joista asiakkaat pitävät.",
+    "items": [
+      {
+        "title": "10 viikon voimapolku (ryhmät)",
+        "points": [
+          "Ylä- & alakroppa -progressio",
+          "Tekniikka ensin, sitten teho",
+          "Viikoittainen vastuu & fiilis"
+        ]
+      },
+      {
+        "title": "100 kg penkki -polku",
+        "points": [
+          "Tekniikka haltuun 35 kg lähtötasolta",
+          "Periodisoitu suunnitelma",
+          "Olkapäätä suojaavat apuliikkeet"
+        ]
+      },
+      {
+        "title": "5 päivän meal prep -opas (digituote)",
+        "points": [
+          "Low-FODMAP, maidottomat vaihtoehdot",
+          "~1600–1800 kcal templaatit",
+          "Ostoslistat & ennakkovalmistelu"
+        ]
+      },
+      {
+        "title": "Toiminnallinen treenipaketti",
+        "points": [
+          "Sporttiset circuitit & PHA",
+          "Keskivartalo & kiertäjäkalvosin",
+          "Skaalautuu kaikille"
+        ]
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Hinnasto",
+    "subtitle": "Selkeät vaihtoehdot ilman yllätyksiä.",
+    "tiers": [
+      {
+        "name": "Startti",
+        "price": "129 €",
+        "period": "/1. kk",
+        "features": [
+          "1 x strategiasessio (60 min)",
+          "Aloitusohjelma + tekniikkatsekki",
+          "Viestituki (ma–pe)"
+        ]
+      },
+      {
+        "name": "Valmenna minut",
+        "price": "249 €",
+        "period": "/kk",
+        "featured": true,
+        "features": [
+          "Viikoittainen valmennus (livenä tai etänä)",
+          "Räätälöity ohjelma",
+          "Ravitsemus & tapaseuranta"
+        ]
+      },
+      {
+        "name": "Pienryhmä",
+        "price": "149 €",
+        "period": "/kk",
+        "features": [
+          "1 krt/vko pienryhmä",
+          "Etenevät 10 viikon jaksot",
+          "Yhteisö ja vastuu"
+        ]
+      }
+    ],
+    "note": "Yritys- ja työpajahinnat pyydettäessä"
+  },
+  "faq": {
+    "title": "Usein kysyttyä",
+    "qas": [
+      {
+        "q": "Olen aloittelija — sopiiko tämä?",
+        "a": "Kyllä. Räätälöin kaiken tasollesi ja etenemme turvallisesti."
+      },
+      {
+        "q": "Onko etävalmennusta?",
+        "a": "Kyllä. Voimme työskennellä täysin etänä tai hybridinä tarkistuksin ja videoanalyysein."
+      },
+      {
+        "q": "Herkän vatsan ravitsemus?",
+        "a": "Kyllä. Teen käytännölliset Low-FODMAP, maidottomat suunnitelmat yksinkertaisilla vaihdoilla."
+      },
+      {
+        "q": "Entä jos jännittää vamman jälkeen?",
+        "a": "Rakennamme rohkeutta askel askeleelta selkeillä välietapeilla ja onnistumisilla."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Jutellaanko?",
+    "subtitle": "Kerro tavoitteesi – teen sinulle reitin seuraaviin askeliin.",
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "phone": "Puhelin (valinnainen)",
+    "message": "Miten voin auttaa?",
+    "submit": "Lähetä viesti",
+    "alt": "Haluatko mieluummin lähettää sähköpostia?",
+    "namePlaceholder": "Nimesi",
+    "messagePlaceholder": "Haluan kysyä...",
+    "philosophyTitle": "Valmennusfilosofiani",
+    "philosophyText": "Lähestymistapani on kestävän perustan rakentaminen, ei pikaratkaisut. Työskentelemme yhdessä luodaksemme tapoja, jotka pysyvät, jotta voit saavuttaa kestävän terveyden ja itsevarmuuden."
+  },
+  "footer": {
+    "rights": "Kaikki oikeudet pidätetään.",
+    "city": "Helsinki, Suomi"
+  }
+}

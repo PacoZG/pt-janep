@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "programs": "Programs",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "kicker": "Personal Training · Health Coaching · Groups",
+    "title": "Stronger body. Better life.",
+    "subtitle": "Hi, I’m Jane Pokkinen — personal trainer, health coach, and group fitness instructor with 13 years of coaching in three countries. I help busy people build strength, confidence, and everyday energy.",
+    "ctaPrimary": "Book a free intro call",
+    "ctaSecondary": "View programs",
+    "trust1": "13+ years coaching",
+    "trust2": "Hundreds of clients",
+    "trust3": "Gentle but firm — with humor"
+  },
+  "about": {
+    "title": "Training that meets you where you are",
+    "subtitle": "Lifestyle changes, health challenges, or getting your mojo back — I coach the whole person. I listen when you need a listener and give a friendly push when you need one.",
+    "bullets": [
+      "Strength & functional training for real life",
+      "Menopause-aware coaching and recovery",
+      "IBS-friendly & low-FODMAP meal planning (dairy-free options)",
+      "Sleep habit coaching to reduce reliance on pills over time",
+      "Confidence rebuild after injury with practical, NLP-informed tools"
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Choose the support that fits your life and schedule.",
+    "items": [
+      {
+        "icon": "Dumbbell",
+        "title": "1:1 Personal Training",
+        "desc": "Fully personalized coaching in-person or online. Technique, progression, accountability."
+      },
+      {
+        "icon": "Users",
+        "title": "Small Group Training",
+        "desc": "High-energy small groups and bootcamps with smart progressions and team spirit."
+      },
+      {
+        "icon": "HeartPulse",
+        "title": "Confidence After Injury",
+        "desc": "Bridge the gap after physio. Regain trust in your body with step-by-step progressions."
+      },
+      {
+        "icon": "Salad",
+        "title": "Nutrition Coaching",
+        "desc": "Low-FODMAP & dairy-free friendly plans. Practical meal-prep strategies for busy weeks."
+      },
+      {
+        "icon": "Sparkles",
+        "title": "Menopause-Savvy Coaching",
+        "desc": "Strength, recovery, and habit tweaks that respect hormonal shifts and energy levels."
+      },
+      {
+        "icon": "BookOpen",
+        "title": "Workshops & Corporate",
+        "desc": "Motivating talks and movement sessions for teams and wellbeing days."
+      }
+    ]
+  },
+  "programs": {
+    "title": "Popular Programs",
+    "subtitle": "Proven structures clients love.",
+    "items": [
+      {
+        "title": "10-Week Strength Series (Groups)",
+        "points": [
+          "Upper + lower split progression",
+          "Technique first, then intensity",
+          "Weekly accountability & fun"
+        ]
+      },
+      {
+        "title": "100 kg Bench Press Pathway",
+        "points": [
+          "Form mastery from 35 kg",
+          "Periodized plan",
+          "Shoulder-friendly accessory work"
+        ]
+      },
+      {
+        "title": "5-Day Meal Prep Guide (Digital)",
+        "points": [
+          "Low-FODMAP, dairy-free options",
+          "~1600–1800 kcal templates",
+          "Shopping lists & batch tips"
+        ]
+      },
+      {
+        "title": "Functional Training Hour Packs",
+        "points": [
+          "Sporty circuits & PHA",
+          "Core & rotator cuff care",
+          "Scalable for all levels"
+        ]
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple Pricing",
+    "subtitle": "Transparent options. No surprise fees.",
+    "tiers": [
+      {
+        "name": "Kickstart",
+        "price": "€129",
+        "period": "/first month",
+        "features": [
+          "1 x strategy session (60 min)",
+          "Starter plan + technique check",
+          "Message support (Mon–Fri)"
+        ]
+      },
+      {
+        "name": "Coach Me",
+        "price": "€249",
+        "period": "/month",
+        "featured": true,
+        "features": [
+          "Weekly coaching (in-person or online)",
+          "Custom program with progressions",
+          "Nutrition guidance & habit tracking"
+        ]
+      },
+      {
+        "name": "Small Group",
+        "price": "€149",
+        "period": "/month",
+        "features": [
+          "1 session/week in a small group",
+          "Progressive 10-week blocks",
+          "Community & accountability"
+        ]
+      }
+    ],
+    "note": "Custom corporate & workshop pricing on request"
+  },
+  "faq": {
+    "title": "FAQ",
+    "qas": [
+      {
+        "q": "I’m a beginner — is this for me?",
+        "a": "Absolutely. We tailor everything to your current level and build up safely."
+      },
+      {
+        "q": "Do you do online coaching?",
+        "a": "Yes. We can work fully online or hybrid with check-ins and video form reviews."
+      },
+      {
+        "q": "Nutrition for sensitive stomach?",
+        "a": "Yes. I create practical low-FODMAP, dairy-free friendly plans with simple swaps."
+      },
+      {
+        "q": "What if I’m post-injury and nervous?",
+        "a": "We rebuild confidence step-by-step with clear progressions and ‘win’ moments each week."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let’s talk",
+    "subtitle": "Tell me your goals and I’ll map your next steps.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "message": "What would you like help with?",
+    "submit": "Send message",
+    "alt": "Prefer email?",
+    "namePlaceholder": "Your name",
+    "messagePlaceholder": "I'd like to get in touch about...",
+    "philosophyTitle": "My philosophy",
+    "philosophyText": "My approach is about building a sustainable foundation, not quick fixes. We work together to create habits that stick, so you can achieve lasting health and confidence."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "city": "Helsinki, Finland"
+  }
+}
