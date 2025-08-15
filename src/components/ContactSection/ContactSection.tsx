@@ -1,6 +1,6 @@
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Instagram } from '@/components/icons'
@@ -116,11 +116,11 @@ const ContactSection = () => {
               <div className="p-6 pt-0">
                 <div className="grid gap-3 text-sm text-gray-700">
                   <div className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" /> jane.pokkinen@gmail.com
+                    <Mail className="h-5 w-5" /> jane.pokkinen@gmail.com
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4" /> {t('footer.city')}
+                    <MapPin className="h-5 w-5" /> {t('footer.city')}
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -130,7 +130,7 @@ const ContactSection = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-lg transition-colors hover:bg-gray-100"
                     >
-                      <Instagram className="h-6 w-6" />
+                      <Instagram className="h-5 w-5" />
 
                       <span>Find me on Instagram</span>
                     </a>

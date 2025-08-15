@@ -1,8 +1,8 @@
+import React from 'react'
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
-import React from 'react'
 
-const ImageGallerySection = () => {
+const ImageGallerySection: React.FC = () => {
   const galleryImages = [
     'https://placehold.co/600x400/BFDBFE/1F2937?text=Fitness+Shot+1',
     'https://placehold.co/600x400/9CA3AF/1F2937?text=Fitness+Shot+2',
@@ -20,12 +20,12 @@ const ImageGallerySection = () => {
           subtitle="A look into my coaching and training sessions."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {galleryImages.map((src, i) => (
+          {galleryImages.map((src: string, i: number) => (
             <div key={i} className="overflow-hidden rounded-xl shadow-lg">
               <img
                 src={src}
-                alt={`Gallery Image ${i + 1}`}
                 className="h-full w-full object-cover"
+                alt={`Gallery Image ${i + 1}`}
               />
             </div>
           ))}

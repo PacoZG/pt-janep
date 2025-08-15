@@ -1,27 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
-import {
-  BookOpen,
-  Check,
-  Clock,
-  Coffee,
-  Dumbbell,
-  HeartPulse,
-  Mail,
-  MapPin,
-  Phone,
-  Salad,
-  ShieldCheck,
-  Sparkles,
-  Star,
-  Users,
-} from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import Container from '@/components/Container/Container'
-import SectionTitle from '@/components/SectionTitle/SectionTitle'
-import { LanguageModel } from '@/utils/language/LanguageModel'
 import NavBar from '@/components/NavBar/NavBar'
 import HeroSection from '@/components/HeroSection/HeroSection'
 import TestimonialSection from '@/components/TestimonialSection/TestimonialSection'
