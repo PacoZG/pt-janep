@@ -3,6 +3,7 @@
     "about": "Minusta",
     "services": "Palvelut",
     "programs": "Ohjelmat",
+    "gallery": "Galleria",
     "pricing": "Hinnasto",
     "faq": "UKK",
     "contact": "Yhteys"
@@ -15,8 +16,31 @@
     "ctaSecondary": "Katso ohjelmat",
     "trust1": "13+ vuotta kokemusta",
     "trust2": "Satoja valmennettavia",
-    "trust3": "Lempeän vahva — huumorilla"
+    "trust3": "Lempeän vahva — huumorilla",
+    "introCard": {
+      "title": "Maksuton tutustumiskartoitus",
+      "subtitle": "15 minuuttia · verkossa",
+      "description": "Etkö ole varma mistä aloittaa? Varaa nopea keskustelu. Kartan kanssasi tavoitteesi, haasteesi ja ensimmäiset helpot askeleet eteenpäin.",
+      "ctaSecondary": "Katso ohjelmat"
+    }
   },
+  "testimonials": [
+    {
+      "quote": "Janen valmennus muutti elämäni. Minulla on enemmän energiaa, olen vahvempi ja tunnen itseni itsevarmemmaksi kuin koskaan.",
+      "author": "Sarah J.",
+      "stars": 5
+    },
+    {
+      "quote": "Henkilökohtainen suunnitelma ja jatkuva kannustus tekivät eron. Suosittelen ehdottomasti!",
+      "author": "Mark R.",
+      "stars": 5
+    },
+    {
+      "quote": "Olin aloittelijana hermostunut, mutta Jane sai minut tuntemaan oloni mukavaksi ja ohjasi minua joka askeleella.",
+      "author": "Laura P.",
+      "stars": 4
+    }
+  ],
   "about": {
     "title": "Valmennus joka kohtaa sinut oikealla tasolla",
     "subtitle": "Elämäntapamuutos, terveyshaasteet tai kadonnut treenifiilis — valmennan kokonaisvaltaisesti. Kuuntelen kun tarvitset kuuntelijaa, potkin lempeästi kun tarvitset tsemppiä.",
@@ -44,7 +68,7 @@
       },
       {
         "icon": "HeartPulse",
-        "title": "Rohkeus takaisin vamman jälkeen",
+        "title": "Itseluottamus vamman jälkeen",
         "desc": "Silta fysioterapian jälkeen. Opitaan luottamaan kehoon askel kerrallaan."
       },
       {

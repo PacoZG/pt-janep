@@ -3,6 +3,7 @@
     "about": "About",
     "services": "Services",
     "programs": "Programs",
+    "gallery": "Gallery",
     "pricing": "Pricing",
     "faq": "FAQ",
     "contact": "Contact"
@@ -15,8 +16,31 @@
     "ctaSecondary": "View programs",
     "trust1": "13+ years coaching",
     "trust2": "Hundreds of clients",
-    "trust3": "Gentle but firm — with humor"
+    "trust3": "Gentle but firm — with humor",
+    "introCard": {
+      "title": "Free Intro Call",
+      "subtitle": "15 minutes · online",
+      "description": "Not sure where to start? Book a quick chat. We’ll map your goals, constraints, and an easy first step.",
+      "ctaSecondary": "See programs"
+    }
   },
+  "testimonials": [
+    {
+      "quote": "Jane's coaching changed my life. I have more energy, I'm stronger, and I feel more confident than ever before.",
+      "author": "Sarah J.",
+      "stars": 5
+    },
+    {
+      "quote": "The personalized plan and constant encouragement made all the difference. Highly recommend!",
+      "author": "Mark R.",
+      "stars": 5
+    },
+    {
+      "quote": "As a beginner, I was nervous, but Jane made me feel comfortable and guided me every step of the way.",
+      "author": "Laura P.",
+      "stars": 4
+    }
+  ],
   "about": {
     "title": "Training that meets you where you are",
     "subtitle": "Lifestyle changes, health challenges, or getting your mojo back — I coach the whole person. I listen when you need a listener and give a friendly push when you need one.",

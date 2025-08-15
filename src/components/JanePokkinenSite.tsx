@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Check,
@@ -33,10 +33,45 @@ const iconMap = {
   BookOpen: BookOpen,
 }
 
+// Share menu component for social media links
+const ShareMenu = ({ isVisible, onClose }) => {
+  const shareUrl = 'https://www.yourwebsite.com' // Replace with the actual URL
+  const shareTitle = 'Jane Pokkinen Coaching'
+  const shareHashtags = 'personaltrainer,healthcoach'
+
+  if (!isVisible) return null
+
+  return (
+    <div className="absolute top-12 left-0 right-0 z-10 rounded-xl border bg-white p-4 shadow-lg">
+      <div className="flex flex-col gap-2">
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
+        >
+          {/*<Facebook className="h-5 w-5 text-blue-600" />*/}
+          <span>Share on Facebook</span>
+        </a>
+        <a
+          href={`https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
+        >
+          {/*<Instagram className="h-5 w-5 text-pink-600" />*/}
+          <span>Share on Instagram</span>
+        </a>
+      </div>
+    </div>
+  )
+}
+
 // --- Main Component ---
 const JanePokkinenSite = () => {
   const t = useTranslations()
   const useLanguageModel = LanguageModel()
+  const [showShareMenu, setShowShareMenu] = useState(false)
 
   const smoothScroll = (id: string) => {
     const el = document.getElementById(id)
@@ -49,6 +84,7 @@ const JanePokkinenSite = () => {
     'about',
     'services',
     'programs',
+    'gallery', // Added gallery to navigation
     'pricing',
     'faq',
     'contact',
@@ -71,20 +107,53 @@ const JanePokkinenSite = () => {
   // The 'FAQ' section questions (assuming 4 questions)
   const faqQuestions = [0, 1, 2, 3]
 
+  // Testimonial data (New)
+  const testimonials = [
+    {
+      quote:
+        "Jane's coaching changed my life. I have more energy, I'm stronger, and I feel more confident than ever before.",
+      author: 'Sarah J.',
+      stars: 5,
+    },
+    {
+      quote:
+        'The personalized plan and constant encouragement made all the difference. Highly recommend!',
+      author: 'Mark R.',
+      stars: 5,
+    },
+    {
+      quote:
+        'As a beginner, I was nervous, but Jane made me feel comfortable and guided me every step of the way.',
+      author: 'Laura P.',
+      stars: 4,
+    },
+  ]
+
+  // Placeholder images for the gallery
+  const galleryImages = [
+    'https://placehold.co/600x400/BFDBFE/1F2937?text=Fitness+Shot+1',
+    'https://placehold.co/600x400/9CA3AF/1F2937?text=Fitness+Shot+2',
+    'https://placehold.co/600x400/60A5FA/1F2937?text=Fitness+Shot+3',
+    'https://placehold.co/600x400/9CA3AF/1F2937?text=Fitness+Shot+4',
+    'https://placehold.co/600x400/A5B4FC/1F2937?text=Fitness+Shot+5',
+    'https://placehold.co/600x400/818CF8/1F2937?text=Fitness+Shot+6',
+  ]
+
   return (
-    <div className="relative min-h-screen scroll-smooth bg-background text-foreground">
+    // Updated background and text colors to a lighter palette
+    <div className="relative min-h-screen scroll-smooth bg-gray-100 text-gray-800">
       {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <header className="sticky top-0 z-50 w-full border-b border-gray-300 bg-white/80 backdrop-blur">
         <Container className="flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
-              <Dumbbell className="h-5 w-5" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-100">
+              <Dumbbell className="h-5 w-5 text-blue-600" />
             </div>
             <div>
-              <div className="text-sm font-semibold leading-none">
+              <div className="text-sm font-semibold leading-none text-gray-800">
                 Jane Pokkinen Coaching
               </div>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-gray-500">
                 PT · Health Coach · Groups
               </div>
             </div>
@@ -94,7 +163,7 @@ const JanePokkinenSite = () => {
               <button
                 key={key}
                 onClick={() => smoothScroll(key)}
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-gray-500 hover:text-gray-900"
               >
                 {t(`nav.${key}`)}
               </button>
@@ -102,25 +171,19 @@ const JanePokkinenSite = () => {
           </nav>
           <div className="flex items-center gap-2">
             <span
-              className="inline-flex cursor-pointer items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-secondary/80"
+              className="inline-flex cursor-pointer items-center rounded-full border border-transparent bg-gray-200 px-2.5 py-0.5 text-xs font-semibold text-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-gray-300"
               onClick={useLanguageModel.handleUsersLanguage}
             >
               {useLanguageModel.usersLanguage === 'fi'
                 ? 'Suomi / EN'
                 : 'EN / Suomi'}
             </span>
-            <button
-              onClick={() => smoothScroll('contact')}
-              className="hidden md:inline-flex h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-            >
-              {t('hero.ctaPrimary')}
-            </button>
           </div>
         </Container>
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-gray-200">
         <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-24">
           <div>
             <motion.div
@@ -128,45 +191,46 @@ const JanePokkinenSite = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+              <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">
                 {t('hero.kicker')}
               </div>
 
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              {/* Updated heading and paragraph colors for contrast */}
+              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                 {t('hero.title')}
               </h1>
 
-              <p className="mt-4 text-lg text-muted-foreground">
-                {t('hero.subtitle')}
-              </p>
+              <p className="mt-4 text-lg text-gray-700">{t('hero.subtitle')}</p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <button
                   onClick={() => smoothScroll('contact')}
-                  className="h-10 rounded-md px-8 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-8 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                   {t('hero.ctaPrimary')}
                 </button>
 
                 <button
                   onClick={() => smoothScroll('programs')}
-                  className="h-10 rounded-md px-8 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
                   {t('hero.ctaSecondary')}
                 </button>
               </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-gray-500">
                 <span className="inline-flex items-center gap-2">
-                  <ShieldCheck className="h-4 w-4" /> {t('hero.trust1')}
+                  <ShieldCheck className="h-4 w-4 text-blue-600" />{' '}
+                  {t('hero.trust1')}
                 </span>
 
                 <span className="inline-flex items-center gap-2">
-                  <Star className="h-4 w-4" /> {t('hero.trust2')}
+                  <Star className="h-4 w-4 text-blue-600" /> {t('hero.trust2')}
                 </span>
 
                 <span className="inline-flex items-center gap-2">
-                  <Coffee className="h-4 w-4" /> {t('hero.trust3')}
+                  <Coffee className="h-4 w-4 text-blue-600" />{' '}
+                  {t('hero.trust3')}
                 </span>
               </div>
             </motion.div>
@@ -177,37 +241,38 @@ const JanePokkinenSite = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="rounded-3xl border bg-card p-6 shadow-lg sm:p-8"
+              className="rounded-3xl border border-gray-300 bg-white p-6 shadow-lg sm:p-8"
             >
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                  <HeartPulse className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100">
+                  <HeartPulse className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">Free Intro Call</div>
+                  <div className="text-sm font-semibold text-gray-800">
+                    {t('hero.introCard.title')}
+                  </div>
 
-                  <div className="text-xs text-muted-foreground">
-                    15 minutes · online
+                  <div className="text-xs text-gray-500">
+                    {t('hero.introCard.subtitle')}
                   </div>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Not sure where to start? Book a quick chat. We’ll map your
-                goals, constraints, and an easy first step.
+              <p className="text-sm text-gray-500">
+                {t('hero.introCard.description')}
               </p>
 
               <div className="mt-4 flex gap-3">
                 <a
                   href="#contact"
-                  className="h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
-                  Book now
+                  {t('hero.ctaPrimary')}
                 </a>
                 <a
                   href="#programs"
-                  className="h-9 px-4 py-2 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 >
-                  See programs
+                  {t('hero.introCard.ctaSecondary')}
                 </a>
               </div>
             </motion.div>
@@ -215,8 +280,41 @@ const JanePokkinenSite = () => {
         </Container>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonials" className="bg-gray-100 py-16 md:py-24">
+        <Container>
+          <SectionTitle
+            title="What clients say"
+            subtitle="Don't just take my word for it. Here's what people are saying about their journey with me."
+          />
+          <div className="mt-10 grid gap-8 lg:grid-cols-3">
+            {testimonials.map((testimonial, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-gray-300 bg-white p-6 text-gray-800 shadow-sm"
+              >
+                <div className="flex items-center gap-1 text-blue-600">
+                  {[...Array(testimonial.stars)].map((_, starIndex) => (
+                    <Star key={starIndex} className="h-5 w-5 fill-blue-600" />
+                  ))}
+                  {[...Array(5 - testimonial.stars)].map((_, starIndex) => (
+                    <Star key={starIndex} className="h-5 w-5 text-gray-400" />
+                  ))}
+                </div>
+                <p className="mt-4 text-sm italic text-gray-700">
+                  "{testimonial.quote}"
+                </p>
+                <p className="mt-4 font-semibold text-gray-800">
+                  - {testimonial.author}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-16 md:py-24">
+      <section id="about" className="py-16 md:py-24 bg-gray-200">
         <Container>
           <SectionTitle
             title={t('about.title')}
@@ -226,8 +324,8 @@ const JanePokkinenSite = () => {
             {/* Iterate through the bullet keys and get the translated string for each */}
             {aboutBullets.map(i => (
               <div key={i} className="flex items-start gap-3 text-base">
-                <Check className="mt-1 h-4 w-4 flex-none" />
-                <span>{t(`about.bullets.${i}`)}</span>
+                <Check className="mt-1 h-4 w-4 flex-none text-blue-600" />
+                <span className="text-gray-700">{t(`about.bullets.${i}`)}</span>
               </div>
             ))}
           </div>
@@ -235,7 +333,7 @@ const JanePokkinenSite = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="bg-muted/30 py-16 md:py-24">
+      <section id="services" className="bg-gray-100 py-16 md:py-24">
         <Container>
           <SectionTitle
             title={t('services.title')}
@@ -251,21 +349,21 @@ const JanePokkinenSite = () => {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl border bg-card text-card-foreground shadow-sm"
+                  className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm"
                 >
                   <div className="flex flex-col space-y-1.5 p-6">
-                    <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-                      <IconComponent className="h-5 w-5" />
+                    <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100">
+                      <IconComponent className="h-5 w-5 text-blue-600" />
                     </div>
-                    <h3 className="text-2xl font-semibold leading-none tracking-tight text-xl">
+                    <h3 className="text-2xl font-semibold leading-none tracking-tight text-xl text-gray-900">
                       {t(`services.items.${i}.title`)}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-gray-700">
                       {t(`services.items.${i}.desc`)}
                     </p>
                   </div>
                   <div className="p-6 pt-0">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
                       <Clock className="h-4 w-4" /> 60–75 min
                     </div>
                   </div>
@@ -277,7 +375,7 @@ const JanePokkinenSite = () => {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-16 md:py-24">
+      <section id="programs" className="py-16 md:py-24 bg-gray-200">
         <Container>
           <SectionTitle
             title={t('programs.title')}
@@ -288,19 +386,19 @@ const JanePokkinenSite = () => {
             {programsItems.map(i => (
               <div
                 key={i}
-                className="rounded-2xl border bg-card text-card-foreground shadow-sm"
+                className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm"
               >
                 <div className="flex flex-col space-y-1.5 p-6">
-                  <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
                     {t(`programs.items.${i}.title`)}
                   </h3>
                 </div>
                 <div className="p-6 pt-0">
-                  <ul className="grid gap-2 text-sm text-muted-foreground">
+                  <ul className="grid gap-2 text-sm text-gray-700">
                     {/* Nested loop for the points of each program */}
                     {programPoints.map(j => (
                       <li key={j} className="flex items-start gap-2">
-                        <Check className="mt-0.5 h-4 w-4" />{' '}
+                        <Check className="mt-0.5 h-4 w-4 text-blue-600" />{' '}
                         {t(`programs.items.${i}.points.${j}`)}
                       </li>
                     ))}
@@ -308,7 +406,7 @@ const JanePokkinenSite = () => {
                   <div className="mt-4 flex gap-3">
                     <a
                       href="#contact"
-                      className="h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                      className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     >
                       {useLanguageModel.usersLanguage === 'fi'
                         ? 'Kysy lisää'
@@ -316,7 +414,7 @@ const JanePokkinenSite = () => {
                     </a>
                     <a
                       href="#pricing"
-                      className="h-9 px-4 py-2 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                      className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     >
                       {useLanguageModel.usersLanguage === 'fi'
                         ? 'Hinnat'
@@ -330,8 +428,29 @@ const JanePokkinenSite = () => {
         </Container>
       </section>
 
+      {/* New Image Gallery Section */}
+      <section id="gallery" className="bg-gray-100 py-16 md:py-24">
+        <Container>
+          <SectionTitle
+            title="My Work"
+            subtitle="A look into my coaching and training sessions."
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {galleryImages.map((src, i) => (
+              <div key={i} className="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={src}
+                  alt={`Gallery Image ${i + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Pricing Section */}
-      <section id="pricing" className="bg-muted/30 py-16 md:py-24">
+      <section id="pricing" className="bg-gray-200 py-16 md:py-24">
         <Container>
           <SectionTitle
             title={t('pricing.title')}
@@ -346,36 +465,36 @@ const JanePokkinenSite = () => {
               return (
                 <div
                   key={i}
-                  className={`rounded-2xl border bg-card text-card-foreground shadow-sm ${
-                    featured ? 'border-primary shadow-xl' : ''
+                  className={`rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm ${
+                    featured ? 'border-blue-600 shadow-xl' : ''
                   }`}
                 >
                   <div className="flex flex-col space-y-1.5 p-6">
                     <span
-                      className={`inline-flex w-fit items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${featured ? 'border-transparent bg-primary text-primary-foreground hover:bg-primary/80' : 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80'}`}
+                      className={`inline-flex w-fit items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${featured ? 'border-transparent bg-blue-600 text-white hover:bg-blue-700' : 'border-transparent bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
                     >
                       {tierName}
                     </span>
-                    <div className="mt-2 text-4xl font-bold">
+                    <div className="mt-2 text-4xl font-bold text-gray-900">
                       {t(`pricing.tiers.${i}.price`)}{' '}
-                      <span className="text-base font-normal text-muted-foreground">
+                      <span className="text-base font-normal text-gray-500">
                         {t(`pricing.tiers.${i}.period`)}
                       </span>
                     </div>
                   </div>
                   <div className="p-6 pt-0">
-                    <ul className="grid gap-2 text-sm text-muted-foreground">
+                    <ul className="grid gap-2 text-sm text-gray-700">
                       {/* Nested loop for the features of each tier */}
                       {pricingFeatures.map(j => (
                         <li key={j} className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4" />{' '}
+                          <Check className="mt-0.5 h-4 w-4 text-blue-600" />{' '}
                           {t(`pricing.tiers.${i}.features.${j}`)}
                         </li>
                       ))}
                     </ul>
                     <a
                       href="#contact"
-                      className="mt-4 w-full h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                      className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     >
                       {useLanguageModel.usersLanguage === 'fi'
                         ? 'Aloita'
@@ -386,7 +505,7 @@ const JanePokkinenSite = () => {
               )
             })}
           </div>
-          <p className="mt-6 text-center text-sm text-muted-foreground">
+          <p className="mt-6 text-center text-sm text-gray-500">
             {t('pricing.note')}
           </p>
         </Container>
@@ -401,15 +520,15 @@ const JanePokkinenSite = () => {
             {faqQuestions.map(i => (
               <div
                 key={i}
-                className="rounded-2xl border bg-card text-card-foreground shadow-sm"
+                className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm"
               >
                 <div className="flex flex-col space-y-1.5 p-6">
-                  <h3 className="text-2xl font-semibold leading-none tracking-tight text-lg">
+                  <h3 className="text-2xl font-semibold leading-none tracking-tight text-lg text-gray-900">
                     {t(`faq.qas.${i}.q`)}
                   </h3>
                 </div>
                 <div className="p-6 pt-0">
-                  <p className="text-muted-foreground">{t(`faq.qas.${i}.a`)}</p>
+                  <p className="text-gray-700">{t(`faq.qas.${i}.a`)}</p>
                 </div>
               </div>
             ))}
@@ -418,16 +537,16 @@ const JanePokkinenSite = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="bg-muted/30 py-16 md:py-24">
+      <section id="contact" className="bg-gray-200 py-16 md:py-24">
         <Container>
           <SectionTitle
             title={t('contact.title')}
             subtitle={t('contact.subtitle')}
           />
           <div className="mt-10 grid gap-6 md:grid-cols-5">
-            <div className="order-2 rounded-2xl border bg-card text-card-foreground shadow-sm md:order-1 md:col-span-3">
+            <div className="order-2 rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm md:order-1 md:col-span-3">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
                   {t('contact.title')}
                 </h3>
               </div>
@@ -447,7 +566,7 @@ const JanePokkinenSite = () => {
                       name="name"
                       placeholder={t('contact.namePlaceholder')}
                       required
-                      className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-9 w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
                   <div className="grid gap-2">
@@ -460,7 +579,7 @@ const JanePokkinenSite = () => {
                       name="email"
                       placeholder="you@example.com"
                       required
-                      className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-9 w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
                   <div className="grid gap-2">
@@ -471,7 +590,7 @@ const JanePokkinenSite = () => {
                       id="phone"
                       name="phone"
                       placeholder="+358 …"
-                      className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-9 w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
                   <div className="grid gap-2">
@@ -483,16 +602,16 @@ const JanePokkinenSite = () => {
                       name="message"
                       placeholder={t('contact.messagePlaceholder')}
                       rows={5}
-                      className="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex min-h-[60px] w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-sm shadow-sm placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                   >
                     {t('contact.submit')}
                   </button>
-                  <div className="text-center text-sm text-muted-foreground">
+                  <div className="text-center text-sm text-gray-500">
                     {t('contact.alt')}{' '}
                     <a
                       className="underline"
@@ -505,14 +624,14 @@ const JanePokkinenSite = () => {
               </div>
             </div>
             <div className="order-1 grid content-start gap-4 md:order-2 md:col-span-2">
-              <div className="rounded-2xl border bg-card text-card-foreground shadow-sm">
+              <div className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm">
                 <div className="flex flex-col space-y-1.5 p-6">
-                  <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
                     {t('contact.title')}
                   </h3>
                 </div>
                 <div className="p-6 pt-0">
-                  <div className="grid gap-3 text-sm text-muted-foreground">
+                  <div className="grid gap-3 text-sm text-gray-700">
                     <div className="flex items-center gap-2">
                       <Mail className="h-4 w-4" /> jane.pokkinen@gmail.com
                     </div>
@@ -525,14 +644,14 @@ const JanePokkinenSite = () => {
                   </div>
                 </div>
               </div>
-              <div className="rounded-2xl border bg-card text-card-foreground shadow-sm">
+              <div className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm">
                 <div className="flex flex-col space-y-1.5 p-6">
-                  <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
                     {t('contact.philosophyTitle')}
                   </h3>
                 </div>
                 <div className="p-6 pt-0">
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-700">
                     {t('contact.philosophyText')}
                   </p>
                 </div>
@@ -543,19 +662,19 @@ const JanePokkinenSite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-10">
+      <footer className="border-t border-gray-300 py-10 bg-gray-100">
         <Container className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-gray-500">
             ©️ {new Date().getFullYear()} Jane Pokkinen. {t('footer.rights')}
           </div>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#pricing" className="hover:text-foreground">
+          <div className="flex items-center gap-6 text-sm text-gray-500">
+            <a href="#pricing" className="hover:text-gray-900">
               {t('nav.pricing')}
             </a>
-            <a href="#faq" className="hover:text-foreground">
+            <a href="#faq" className="hover:text-gray-900">
               {t('nav.faq')}
             </a>
-            <a href="#contact" className="hover:text-foreground">
+            <a href="#contact" className="hover:text-gray-900">
               {t('nav.contact')}
             </a>
           </div>
