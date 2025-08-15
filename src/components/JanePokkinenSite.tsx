@@ -1,22 +1,22 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
+  BookOpen,
   Check,
+  Clock,
+  Coffee,
   Dumbbell,
   HeartPulse,
-  Salad,
-  Users,
-  Sparkles,
   Mail,
-  Phone,
-  Clock,
   MapPin,
-  Star,
+  Phone,
+  Salad,
   ShieldCheck,
-  Coffee,
-  BookOpen,
+  Sparkles,
+  Star,
+  Users,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Container from '@/components/Container/Container'
