@@ -301,7 +301,7 @@ const JanePokkinenSite = () => {
                   ))}
                 </div>
                 <p className="mt-4 text-sm italic text-gray-700">
-                  "{testimonial.quote}"
+                  {`"${testimonial.quote}"`}
                 </p>
                 <p className="mt-4 font-semibold text-gray-800">
                   - {testimonial.author}
