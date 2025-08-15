@@ -33,45 +33,44 @@ const iconMap = {
   BookOpen: BookOpen,
 }
 
-// Share menu component for social media links
-const ShareMenu = ({ isVisible, onClose }) => {
-  const shareUrl = 'https://www.yourwebsite.com' // Replace with the actual URL
-  const shareTitle = 'Jane Pokkinen Coaching'
-  const shareHashtags = 'personaltrainer,healthcoach'
+// // Share menu component for social media links
+// const ShareMenu = ({ isVisible, onClose }) => {
+//   const shareUrl = 'https://www.yourwebsite.com' // Replace with the actual URL
+//   const shareTitle = 'Jane Pokkinen Coaching'
+//   const shareHashtags = 'personaltrainer,healthcoach'
+//
+//   if (!isVisible) return null
+//
+//   return (
+//     <div className="absolute top-12 left-0 right-0 z-10 rounded-xl border bg-white p-4 shadow-lg">
+//       <div className="flex flex-col gap-2">
+//         <a
+//           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
+//         >
+//           {/*<Facebook className="h-5 w-5 text-blue-600" />*/}
+//           <span>Share on Facebook</span>
+//         </a>
+//         <a
+//           href={`https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
+//         >
+//           {/*<Instagram className="h-5 w-5 text-pink-600" />*/}
+//           <span>Share on Instagram</span>
+//         </a>
+//       </div>
+//     </div>
+//   )
+// }
 
-  if (!isVisible) return null
-
-  return (
-    <div className="absolute top-12 left-0 right-0 z-10 rounded-xl border bg-white p-4 shadow-lg">
-      <div className="flex flex-col gap-2">
-        <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
-        >
-          {/*<Facebook className="h-5 w-5 text-blue-600" />*/}
-          <span>Share on Facebook</span>
-        </a>
-        <a
-          href={`https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
-        >
-          {/*<Instagram className="h-5 w-5 text-pink-600" />*/}
-          <span>Share on Instagram</span>
-        </a>
-      </div>
-    </div>
-  )
-}
-
-// --- Main Component ---
 const JanePokkinenSite = () => {
   const t = useTranslations()
   const useLanguageModel = LanguageModel()
-  const [showShareMenu, setShowShareMenu] = useState(false)
+  // const [showShareMenu, setShowShareMenu] = useState<boolean>(false)
 
   const smoothScroll = (id: string) => {
     const el = document.getElementById(id)
