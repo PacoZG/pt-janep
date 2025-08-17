@@ -17,7 +17,6 @@ import {
   Navigation,
   Pagination,
 } from 'swiper/modules'
-import './swiper-styles.css'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -57,7 +56,7 @@ const ServicesSection: FC = () => {
         subtitle={t('services.subtitle')}
       />
       <Swiper
-        className="mySwiper"
+        // className="mySwiper"
         grabCursor={true}
         centeredSlides={true}
         loop={true}
