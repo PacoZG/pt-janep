@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { FC } from 'react'
 import NavBar from '@/components/NavBar/NavBar'
 import HeroSection from '@/components/HeroSection/HeroSection'
 import TestimonialSection from '@/components/TestimonialSection/TestimonialSection'
@@ -49,7 +49,7 @@ import Footer from '@/components/Footer/Footer'
 //   )
 // }
 
-const JanePokkinenSite = () => {
+const JanePokkinenSite: FC = () => {
   return (
     // Updated background and text colors to a lighter palette
     <div className="relative min-h-screen scroll-smooth bg-gray-100 text-gray-800">

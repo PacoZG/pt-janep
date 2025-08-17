@@ -1,9 +1,9 @@
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
-import React from 'react'
+import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
 
-const FAQSection = () => {
+const FAQSection: FC = () => {
   const t = useTranslations()
   const faqQuestions = [0, 1, 2, 3]
 

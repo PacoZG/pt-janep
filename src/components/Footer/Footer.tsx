@@ -1,8 +1,8 @@
 import Container from '@/components/Container/Container'
-import React from 'react'
+import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
 
-const Footer = () => {
+const Footer: FC = () => {
   const t = useTranslations()
 
   return (

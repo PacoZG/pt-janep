@@ -10,7 +10,7 @@
   },
   "hero": {
     "kicker": "Personal Training · Health Coaching · Groups",
-    "title": "Stronger body. Better life.",
+    "title": "My philosophy",
     "subtitle": "Hi, I’m Jane Pokkinen — personal trainer, health coach, and group fitness instructor with 13 years of coaching in three countries. I help busy people build strength, confidence, and everyday energy.",
     "ctaPrimary": "Book a free intro call",
     "ctaSecondary": "View programs",
@@ -197,7 +197,12 @@
     "namePlaceholder": "Your name",
     "messagePlaceholder": "I'd like to get in touch about...",
     "philosophyTitle": "My philosophy",
-    "philosophyText": "My approach is about building a sustainable foundation, not quick fixes. We work together to create habits that stick, so you can achieve lasting health and confidence."
+    "philosophyText": "My approach is about building a sustainable foundation, not quick fixes. We work together to create habits that stick, so you can achieve lasting health and confidence.",
+    "message-sent": "I'll get back to you as soon as possible.",
+    "sent": "Message sent",
+    "invalid-email": "Invalid email format",
+    "invalidNumber": "Invalid number",
+    "characters": "Characters "
   },
   "footer": {
     "rights": "All rights reserved.",

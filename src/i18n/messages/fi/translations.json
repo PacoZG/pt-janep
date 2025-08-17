@@ -197,7 +197,12 @@
     "namePlaceholder": "Nimesi",
     "messagePlaceholder": "Haluan kysyä...",
     "philosophyTitle": "Valmennusfilosofiani",
-    "philosophyText": "Lähestymistapani on kestävän perustan rakentaminen, ei pikaratkaisut. Työskentelemme yhdessä luodaksemme tapoja, jotka pysyvät, jotta voit saavuttaa kestävän terveyden ja itsevarmuuden."
+    "philosophyText": "Lähestymistapani on kestävän perustan rakentaminen, ei pikaratkaisut. Työskentelemme yhdessä luodaksemme tapoja, jotka pysyvät, jotta voit saavuttaa kestävän terveyden ja itsevarmuuden.",
+    "message-sent": "Otan yhteyttä mahdollisimman pian.",
+    "sent": "Viesti lähetetty",
+    "invalid-email": "Virheellinen sähköpostiosoite",
+    "invalidNumber": "Virheellinen numero",
+    "characters": "Merkkiä"
   },
   "footer": {
     "rights": "Kaikki oikeudet pidätetään.",

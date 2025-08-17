@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
 
-const ImageGallerySection: React.FC = () => {
+const ImageGallerySection: FC = () => {
   const galleryImages = [
     'https://placehold.co/600x400/BFDBFE/1F2937?text=Fitness+Shot+1',
     'https://placehold.co/600x400/9CA3AF/1F2937?text=Fitness+Shot+2',

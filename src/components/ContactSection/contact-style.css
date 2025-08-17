@@ -1,0 +1,15 @@
+.contact-input-style {
+    @apply bg-gray-100 dark:bg-gray-700 rounded-md h-10 sm:h-12 w-full p-2 text-gray-800 dark:text-gray-200 text-sm  md:text-lg block border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent shadow-sm placeholder-gray-500 dark:placeholder-gray-400 transition duration-300;
+}
+
+.contact-send-button-enabled {
+    @apply transition duration-300 inline-flex justify-center py-2 px-10 w-48 xs:py-2 xs:px-9 xs:w-44 shadow-md font-semibold rounded-md bg-blue-700 hover:bg-blue-800 text-white text-lg focus-within:outline-none;
+}
+
+.contact-send-button-disabled {
+    @apply transition duration-300 inline-flex justify-center py-2 px-10 w-48 xs:py-2 xs:px-9 xs:w-44 shadow-sm font-extralight rounded-md bg-gray-400 dark:bg-gray-700 opacity-50 text-lg text-gray-600 dark:text-gray-400 cursor-not-allowed;
+}
+
+.contact-sent-message-display {
+    @apply transition duration-300 inline-flex justify-center py-2 px-4 w-48 shadow-md font-semibold rounded-md bg-green-600 text-white text-lg focus-within:outline-none;
+}

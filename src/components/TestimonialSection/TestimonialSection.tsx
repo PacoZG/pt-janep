@@ -1,9 +1,9 @@
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
 import { Star } from 'lucide-react'
-import React from 'react'
+import React, { FC } from 'react'
 
-const TestimonialSection = () => {
+const TestimonialSection: FC = () => {
   const testimonials = [
     {
       quote:

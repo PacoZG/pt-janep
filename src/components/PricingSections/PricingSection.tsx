@@ -1,11 +1,11 @@
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
 import { Check } from 'lucide-react'
-import React from 'react'
+import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
 import { LanguageModel } from '@/utils/language/LanguageModel'
 
-const PricingSection = () => {
+const PricingSection: FC = () => {
   const t = useTranslations()
   const useLanguageModel = LanguageModel()
 
