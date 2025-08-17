@@ -13,9 +13,10 @@ const PricingSection: FC = () => {
   const pricingFeatures = [0, 1, 2]
 
   return (
-    <section id="pricing" className="bg-gray-100 py-16 md:py-24">
+    <section id="pricing" className="bg-transparent py-16 md:py-24">
       <Container>
         <SectionTitle
+          className="text-blue-300"
           title={t('pricing.title')}
           subtitle={t('pricing.subtitle')}
         />

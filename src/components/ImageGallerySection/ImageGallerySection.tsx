@@ -5,18 +5,22 @@ import Image from 'next/image'
 
 const ImageGallerySection: FC = () => {
   const galleryImages = [
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/tsznr5ml8vvwlv455vqh.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427117/edejyvx4wt0zuqwj95xq.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
+    'https://swiperjs.com/demos/images/nature-1.jpg',
+    'https://swiperjs.com/demos/images/nature-2.jpg',
+    'https://swiperjs.com/demos/images/nature-3.jpg',
+    'https://swiperjs.com/demos/images/nature-4.jpg',
+    'https://swiperjs.com/demos/images/nature-5.jpg',
+    'https://swiperjs.com/demos/images/nature-6.jpg',
+    'https://swiperjs.com/demos/images/nature-7.jpg',
+    'https://swiperjs.com/demos/images/nature-8.jpg',
+    'https://swiperjs.com/demos/images/nature-9.jpg',
   ]
 
   return (
-    <section id="gallery" className="bg-gray-200 py-16 md:py-24">
+    <section id="gallery" className="bg-transparent py-16 md:py-24">
       <Container>
         <SectionTitle
+          className="text-blue-300"
           title="My Work"
           subtitle="A look into my coaching and training sessions."
         />

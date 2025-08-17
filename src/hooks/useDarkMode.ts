@@ -6,7 +6,7 @@ export type Theme = 'light' | 'dark'
 
 const useDarkMode = (): [
   Theme,
-  React.Dispatch<React.SetStateAction<Theme>>
+  React.Dispatch<React.SetStateAction<Theme>>,
 ] => {
   const usersTheme: Theme = getTheme() || 'dark'
 

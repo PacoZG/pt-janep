@@ -7,6 +7,8 @@
     "dev": "scripts/run-dev.sh",
     "build": "next build",
     "start": "next start",
+    "verify-code-style": "prettier --check 'src/**/*.ts'",
+    "fix-code-style": "prettier --write 'src/**/*.ts'",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },

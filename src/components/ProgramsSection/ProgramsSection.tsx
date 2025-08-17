@@ -26,10 +26,16 @@ const ProgramsSection: FC = () => {
   const programPoints = [0, 1, 2]
   const imageList: string[] = [
     'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
     'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/a5acetprjnqghyaknucd.jpg',
     'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/tsznr5ml8vvwlv455vqh.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463692/mweyotba7jqdboewjx8w.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463692/cxdzknbhsbehcyn41fqx.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/nw4bgkxrvpxrv7p29mrp.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463695/cymvrwsipldwlujhtnqr.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463697/zabwipx5eij2wtvy7g35.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
     'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427117/edejyvx4wt0zuqwj95xq.jpg',
     'https://swiperjs.com/demos/images/nature-1.jpg',
     'https://swiperjs.com/demos/images/nature-2.jpg',
@@ -48,7 +54,7 @@ const ProgramsSection: FC = () => {
   // }
 
   return (
-    <section id="programs" className="py-16 md:py-24 bg-gray-900">
+    <section id="programs" className="py-16 md:py-24 bg-gray-1">
       <SectionTitle
         title={t('programs.title')}
         subtitle={t('programs.subtitle')}
@@ -95,7 +101,7 @@ const ProgramsSection: FC = () => {
                   style={{
                     backgroundImage: `url(${imageList[i]})`,
                   }}
-                  className="absolute inset-0 bg-cover bg-center h-[250px] w-full rounded-2xl opacity-30"
+                  className="absolute inset-0 bg-cover bg-center h-[250px] w-full rounded-2xl opacity-90"
                 />
 
                 <div className="relative ">
