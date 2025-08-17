@@ -11,7 +11,7 @@ const AboutSection: FC = () => {
   return (
     <section
       id="about"
-      className="py-16 md:py-24 relative overflow-hidden text-gray-100 dark:text-gray-200"
+      className="py-16 md:py-24 relative overflow-hidden text-gray-100 dark:text-gray-200 bg-gray-900 bg-opacity-40"
     >
       <Container>
         <SectionTitle title={t('about.title')} subtitle={t('about.subtitle')} />

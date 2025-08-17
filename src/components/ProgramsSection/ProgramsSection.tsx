@@ -54,11 +54,11 @@ const ProgramsSection: FC = () => {
   // }
 
   return (
-    <section id="programs" className="py-16 md:py-24 bg-gray-1">
+    <section id="programs" className="py-16 md:py-24 bg-gray-900 bg-opacity-40">
       <SectionTitle
+        className="text-gray-200"
         title={t('programs.title')}
         subtitle={t('programs.subtitle')}
-        className="text-gray-400"
       />
 
       <Swiper

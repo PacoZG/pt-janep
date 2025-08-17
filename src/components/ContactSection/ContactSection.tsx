@@ -26,9 +26,10 @@ const ContactSection: FC = () => {
   } = ContactModel()
 
   return (
-    <section id="contact" className="bg-gray-200 py-16 md:py-24">
+    <section id="contact" className="bg-gray-900 bg-opacity-40 py-16 md:py-24">
       <Container>
         <SectionTitle
+          className="text-gray-300"
           title={t('contact.title')}
           subtitle={t('contact.subtitle')}
         />

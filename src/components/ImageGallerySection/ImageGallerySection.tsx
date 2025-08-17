@@ -17,7 +17,7 @@ const ImageGallerySection: FC = () => {
   ]
 
   return (
-    <section id="gallery" className="bg-transparent py-16 md:py-24">
+    <section id="gallery" className="bg-gray-900 bg-opacity-40 py-16 md:py-24">
       <Container>
         <SectionTitle
           className="text-blue-300"

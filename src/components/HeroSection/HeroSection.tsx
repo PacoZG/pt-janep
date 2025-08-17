@@ -13,7 +13,7 @@ const HeroSection: FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gray-900">
+    <section className="relative overflow-hidden bg-transparent ">
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-24">
         <Image
           className={'rounded-3xl border-2 border-gray-300'}
