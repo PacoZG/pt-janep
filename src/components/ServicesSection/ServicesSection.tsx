@@ -1,4 +1,3 @@
-import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
 import {
   BookOpen,
@@ -13,10 +12,10 @@ import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import {
-  Pagination,
-  Navigation,
-  EffectCoverflow,
   Autoplay,
+  EffectCoverflow,
+  Navigation,
+  Pagination,
 } from 'swiper/modules'
 import './swiper-styles.css'
 

@@ -1,5 +1,3 @@
-// src/components/SectionTitle.tsx
-
 import React from 'react'
 
 const SectionTitle: React.FC<{

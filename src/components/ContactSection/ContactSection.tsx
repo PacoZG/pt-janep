@@ -25,8 +25,6 @@ const ContactSection: FC = () => {
     phone,
   } = ContactModel()
 
-  console.log('IS VALID NUMBER: ', phoneInputValidation())
-
   return (
     <section id="contact" className="bg-gray-200 py-16 md:py-24">
       <Container>

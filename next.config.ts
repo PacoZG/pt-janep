@@ -3,7 +3,13 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [new URL('https://res.cloudinary.com/**/image/upload/**')],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '**',
+      },
+    ],
   },
 }
 

@@ -1,15 +1,16 @@
 import React, { FC } from 'react'
 import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
+import Image from 'next/image'
 
 const ImageGallerySection: FC = () => {
   const galleryImages = [
-    'https://placehold.co/600x400/BFDBFE/1F2937?text=Fitness+Shot+1',
-    'https://placehold.co/600x400/9CA3AF/1F2937?text=Fitness+Shot+2',
-    'https://placehold.co/600x400/60A5FA/1F2937?text=Fitness+Shot+3',
-    'https://placehold.co/600x400/9CA3AF/1F2937?text=Fitness+Shot+4',
-    'https://placehold.co/600x400/A5B4FC/1F2937?text=Fitness+Shot+5',
-    'https://placehold.co/600x400/818CF8/1F2937?text=Fitness+Shot+6',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/tsznr5ml8vvwlv455vqh.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427117/edejyvx4wt0zuqwj95xq.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
   ]
 
   return (
@@ -22,10 +23,12 @@ const ImageGallerySection: FC = () => {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {galleryImages.map((src: string, i: number) => (
             <div key={i} className="overflow-hidden rounded-xl shadow-lg">
-              <img
+              <Image
                 src={src}
                 className="h-full w-full object-cover"
                 alt={`Gallery Image ${i + 1}`}
+                height={1024}
+                width={1024}
               />
             </div>
           ))}
