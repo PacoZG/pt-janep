@@ -41,12 +41,12 @@ const NavBar: FC = () => {
           </div>
         </div>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-2 lg:gap-6 md:flex">
           {navLinks.map(key => (
             <button
               key={key}
               onClick={() => smoothScroll(key)}
-              className="text-lg text-gray-400 hover:text-gray-900"
+              className=" lg:text-lg text-gray-400 hover:text-gray-900"
             >
               {t(`nav.${key}`)}
             </button>
