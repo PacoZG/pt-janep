@@ -57,18 +57,11 @@ const ServicesSection: FC = () => {
         subtitle={t('services.subtitle')}
       />
       <Swiper
-        effect="coverflow"
+        className="mySwiper"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView="auto"
         loop={true}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 40,
-          depth: 150,
-          modifier: 8,
-          slideShadows: false,
-        }}
+        navigation={true}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
@@ -76,10 +69,23 @@ const ServicesSection: FC = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-        className="mySwiper"
         spaceBetween={30}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+        effect="coverflow"
+        slidesPerView="auto"
+        coverflowEffect={{
+          slideShadows: false,
+        }}
+        breakpoints={{
+          768: {
+            coverflowEffect: {
+              rotate: 5,
+              stretch: 10,
+              depth: 150,
+              modifier: 8,
+            },
+          },
+        }}
       >
         {/* Iterate through the service items and create a slide for each */}
         {servicesItems.map((i: number) => {
