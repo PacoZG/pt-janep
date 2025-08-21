@@ -13,6 +13,7 @@ import ProgramsSection from '@/components/ProgramsSection/ProgramsSection'
 import PricingSection from '@/components/PricingSections/PricingSection'
 import Footer from '@/components/Footer/Footer'
 import { motion } from 'motion/react'
+import CardStack from '@/components/ImageGallerySection/CardStack'
 
 const imageList: string[] = [
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
@@ -129,8 +130,10 @@ const JanePokkinenSite: FC = () => {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true, amount: 0.5 }}
+            style={{ position: 'relative' }}
           >
-            <ImageGallerySection />
+            {/*<ImageGallerySection />*/}
+            <CardStack />
           </motion.div>
           <hr className="my-10" />
 

@@ -13,6 +13,20 @@ module.exports = {
         },
       },
       scale: ['active', 'group-hover'],
+      keyframes: {
+        typing: {
+          '0%': { width: '0%' },
+          '100%': { width: '100%' },
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: 'white' },
+        },
+      },
+      animation: {
+        typing: 'typing 3s steps(30, end) forwards',
+        blink: 'blink 1s step-end infinite',
+      },
     },
     screens: {
       xs: '400px',

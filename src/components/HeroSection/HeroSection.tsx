@@ -4,6 +4,7 @@ import { Coffee, ShieldCheck, Star } from 'lucide-react'
 import Image from 'next/image'
 import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
+import Typewriter from '@/components/HeroSection/Typewriter'
 
 const HeroSection: FC = () => {
   const t = useTranslations()
@@ -13,10 +14,10 @@ const HeroSection: FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden bg-transparent ">
+    <section className="relative overflow-hidden bg-gray-900 bg-opacity-60">
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-24">
         <Image
-          className={'rounded-3xl border-2 border-gray-300'}
+          className={'rounded-3xl '}
           src={
             'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1635678768/k82chnjvlsftuswvcuow.jpg'
           }
@@ -31,16 +32,18 @@ const HeroSection: FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-yellow-500">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-300">
               {t('hero.kicker')}
             </div>
 
             {/* Updated heading and paragraph colors for contrast */}
-            <h1 className="text-4xl font-extrabold tracking-tight text-red-800 sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-800 sm:text-5xl">
               {t('hero.title')}
             </h1>
 
-            <p className="mt-4 text-lg text-gray-700">{t('hero.subtitle')}</p>
+            <Typewriter />
+
+            {/*<p className="mt-4 text-lg text-gray-300">{t('hero.subtitle')}</p>*/}
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
@@ -59,18 +62,19 @@ const HeroSection: FC = () => {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-              <span className="inline-flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-blue-600" />{' '}
-                {t('hero.trust1')}
-              </span>
+              <div className="inline-flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-blue-900" />
+                <span className="text-gray-300"> {t('hero.trust1')}</span>
+              </div>
 
-              <span className="inline-flex items-center gap-2">
-                <Star className="h-4 w-4 text-blue-600" /> {t('hero.trust2')}
-              </span>
+              <div className="inline-flex items-center gap-2">
+                <Star className="h-4 w-4 text-blue-900" />{' '}
+                <span className="text-gray-300"> {t('hero.trust2')}</span>
+              </div>
 
-              <span className="inline-flex items-center gap-2">
-                <Coffee className="h-4 w-4 text-blue-600" /> {t('hero.trust3')}
-              </span>
+              <div className="inline-flex items-center gap-2">
+                <span className="text-gray-300"> {t('hero.trust3')}</span>
+              </div>
             </div>
           </motion.div>
         </div>
