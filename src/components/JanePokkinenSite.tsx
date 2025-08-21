@@ -1,7 +1,6 @@
 'use client'
 
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 import NavBar from '@/components/NavBar/NavBar'
 import HeroSection from '@/components/HeroSection/HeroSection'
 import TestimonialSection from '@/components/TestimonialSection/TestimonialSection'
@@ -13,9 +12,11 @@ import ContactSection from '@/components/ContactSection/ContactSection'
 import ProgramsSection from '@/components/ProgramsSection/ProgramsSection'
 import PricingSection from '@/components/PricingSections/PricingSection'
 import Footer from '@/components/Footer/Footer'
+import { motion } from 'motion/react'
 
 const imageList: string[] = [
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
+  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755749709/z96ytmzu77b7shnorn8x.jpg',
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
@@ -31,15 +32,17 @@ const imageList: string[] = [
 
 const JanePokkinenSite: FC = () => {
   const [currentBgImage, setCurrentBgImage] = useState(imageList[0])
+  const [showTopButton, setShowTopButton] = useState(false)
   const pageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
       if (pageRef.current) {
         const scrollPosition = pageRef.current.scrollTop
-        const sectionHeight = window.innerHeight // Use viewport height for a simple threshold
-        const newImageIndex = Math.floor(scrollPosition / sectionHeight)
+        setShowTopButton(scrollPosition > 1000)
 
+        const sectionHeight = window.innerHeight
+        const newImageIndex = Math.floor(scrollPosition / sectionHeight)
         if (newImageIndex >= 0 && newImageIndex < imageList.length) {
           setCurrentBgImage(imageList[newImageIndex])
         }
@@ -58,122 +61,146 @@ const JanePokkinenSite: FC = () => {
     }
   }, [])
 
+  const scrollToTop = () => {
+    if (pageRef.current) {
+      pageRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   return (
-    <div
-      ref={pageRef}
-      className="relative min-h-screen overflow-y-scroll text-gray-800"
-      style={{
-        backgroundImage: `url(${currentBgImage})`,
-        backgroundAttachment: 'fixed',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        transition: 'background-image 0.5s ease-in-out',
-      }}
-    >
-      <div className="absolute inset-0 bg-gray-100 bg-opacity-70">
-        <NavBar />
+    <>
+      <div
+        ref={pageRef}
+        className="relative min-h-screen overflow-y-scroll text-gray-800"
+        style={{
+          backgroundImage: `url(${currentBgImage})`,
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transition: 'background-image 0.5s ease-in-out',
+        }}
+      >
+        <div className="absolute inset-0 bg-gray-100 bg-opacity-70">
+          <NavBar />
 
-        {/* Use motion.div for sections to add animations */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <HeroSection />
-        </motion.div>
-        <hr className="my-10" />
+          {/* Use motion.div for sections to add animations */}
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <HeroSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <ServicesSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <ServicesSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <AboutSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <AboutSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <ProgramsSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 5 }}
+            viewport={{ once: true, amount: 'some' }}
+          >
+            <ProgramsSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <ImageGallerySection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <ImageGallerySection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <PricingSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <PricingSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <FAQSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <FAQSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <TestimonialSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <TestimonialSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <ContactSection />
-        </motion.div>
-        <hr className="my-10" />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <ContactSection />
+          </motion.div>
+          <hr className="my-10" />
 
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
           <Footer />
-        </motion.div>
+        </div>
+
+        {showTopButton && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-gray-600 to-blue-500 shadow-lg hover:from-blue-600 hover:to-purple-600 transition"
+            aria-label="Back to Top"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={3}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 15l7-7 7 7"
+              />
+            </svg>
+          </button>
+        )}
       </div>
-    </div>
+    </>
   )
 }
 
