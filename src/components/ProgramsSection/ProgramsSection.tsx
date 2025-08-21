@@ -67,6 +67,7 @@ const ProgramsSection: FC = () => {
           paddingTop: '50px',
           paddingBottom: '50px',
         }}
+        initialSlide={1}
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
