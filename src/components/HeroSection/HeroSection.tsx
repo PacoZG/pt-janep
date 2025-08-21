@@ -1,6 +1,6 @@
 import Container from '@/components/Container/Container'
 import { motion } from 'framer-motion'
-import { Coffee, ShieldCheck, Star } from 'lucide-react'
+import { ShieldCheck, Star } from 'lucide-react'
 import Image from 'next/image'
 import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'

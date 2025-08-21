@@ -17,7 +17,7 @@ export default function Typewriter() {
     } else {
       setDone(true)
     }
-  }, [text])
+  }, [fullText, text])
 
   return (
     <h1 className="py-6 text-lg md:text-2xl font-mono text-gray-200 max-w-3xl h-56 leading-relaxed">
