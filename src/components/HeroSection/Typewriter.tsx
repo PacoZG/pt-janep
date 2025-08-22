@@ -11,7 +11,7 @@ export default function Typewriter() {
     if (text.length < fullText.length) {
       const timeout = setTimeout(() => {
         setText(fullText.slice(0, text.length + 1))
-      }, 30) // typing speed (ms per character)
+      }, 100) // typing speed (ms per character)
 
       return () => clearTimeout(timeout)
     } else {
@@ -23,7 +23,7 @@ export default function Typewriter() {
     <h1 className="py-6 text-lg md:text-2xl font-mono text-gray-200 max-w-3xl h-56 leading-relaxed">
       {text}
       <span
-        className={`border-r-2 ml-1 ${
+        className={`border-l-2 ml-1 ${
           done ? 'animate-pulse border-white' : 'border-transparent'
         }`}
       >
