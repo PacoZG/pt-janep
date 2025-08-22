@@ -8,6 +8,7 @@ import {
   AnimatePresence,
 } from 'framer-motion'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
+import Image from 'next/image'
 
 const imageList: string[] = [
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
@@ -55,7 +56,6 @@ const CardStack = () => {
 
       <div className="flex justify-center items-center pt-9">
         <div className="relative w-[280px] h-[340px] md:w-[480px] md:h-[640px] select-none">
-          {' '}
           {/* prevent text/image drag */}
           <AnimatePresence>
             {images
@@ -70,12 +70,17 @@ const CardStack = () => {
                 return (
                   <motion.div
                     key={img}
-                    className="absolute w-full h-full rounded-xl shadow-lg overflow-hidden bg-gray-500 cursor-grab active:cursor-grabbing"
-                    style={{ x, rotate, zIndex: 100 - index }}
+                    className={`absolute w-full h-full rounded-xl shadow-lg overflow-hidden bg-gray-500`}
+                    style={{
+                      x,
+                      rotate,
+                      zIndex: 100 - index,
+                      cursor: isTop ? 'grab' : 'default',
+                    }}
                     drag={isTop ? 'x' : false}
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={0.5}
-                    dragListener={true} // 👈 ensures drag starts immediately
+                    dragListener={isTop} // 👈 ensures drag starts immediately
                     onDragEnd={(e, info) => {
                       if (Math.abs(info.offset.x) > 120) {
                         swipe()
@@ -87,12 +92,15 @@ const CardStack = () => {
                     animate={{ scale: 1 - i * 0.03, y: -i * 10, opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
+                    whileTap={{ cursor: 'grabbing' }}
                   >
-                    <img
+                    <Image
                       src={img}
                       alt=""
-                      draggable={false} // 👈 prevent browser's native image dragging
-                      className="w-full h-full object-cover pointer-events-none"
+                      draggable={true} // 👈 prevent browser's native image dragging
+                      className={`w-full h-full object-cover pointer-events-none`}
+                      height={1024}
+                      width={1024}
                     />
                   </motion.div>
                 )
