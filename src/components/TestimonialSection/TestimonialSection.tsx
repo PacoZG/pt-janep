@@ -28,11 +28,11 @@ const TestimonialSection: FC = () => {
   return (
     <section
       id="testimonials"
-      className="bg-gray-900 bg-opacity-40 py-16 md:py-24"
+      className="bg-gray-700 bg-opacity-5 dark:bg-gray-900 dark:bg-opacity-40 py-16 md:py-24 md:h-[800px]"
     >
       <Container>
         <SectionTitle
-          className="text-yellow-400"
+          className="text-gray-900"
           title="What clients say"
           subtitle="Don't just take my word for it. Here's what people are saying about their journey with me."
         />

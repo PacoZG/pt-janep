@@ -1,6 +1,6 @@
 import Container from '@/components/Container/Container'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Star } from 'lucide-react'
+import { Coffee, ShieldCheck, Star } from 'lucide-react'
 import Image from 'next/image'
 import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
@@ -14,7 +14,7 @@ const HeroSection: FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gray-900 bg-opacity-60">
+    <section className="relative overflow-hidden bg-gray-600 bg-opacity-60">
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-24">
         <Image
           className={'rounded-3xl '}
@@ -63,17 +63,18 @@ const HeroSection: FC = () => {
 
             <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-gray-500">
               <div className="inline-flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-blue-900" />
-                <span className="text-gray-300"> {t('hero.trust1')}</span>
+                <ShieldCheck className="h-4 w-4 text-blue-700" />
+                <span className="text-gray-200"> {t('hero.trust1')}</span>
               </div>
 
               <div className="inline-flex items-center gap-2">
-                <Star className="h-4 w-4 text-blue-900" />{' '}
-                <span className="text-gray-300"> {t('hero.trust2')}</span>
+                <Star className="h-4 w-4 text-blue-700" />{' '}
+                <span className="text-gray-200"> {t('hero.trust2')}</span>
               </div>
 
               <div className="inline-flex items-center gap-2">
-                <span className="text-gray-300"> {t('hero.trust3')}</span>
+                <Coffee className="h-4 w-4 text-blue-700" />
+                <span className="text-gray-200"> {t('hero.trust3')}</span>
               </div>
             </div>
           </motion.div>

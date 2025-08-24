@@ -11,197 +11,175 @@ import ContactSection from '@/components/ContactSection/ContactSection'
 import ProgramsSection from '@/components/ProgramsSection/ProgramsSection'
 import PricingSection from '@/components/PricingSections/PricingSection'
 import Footer from '@/components/Footer/Footer'
-import { motion } from 'motion/react'
 import CardStack from '@/components/ImageGallerySection/CardStack'
 
-const imageList: string[] = [
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755749709/z96ytmzu77b7shnorn8x.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/nw4bgkxrvpxrv7p29mrp.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/tsznr5ml8vvwlv455vqh.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427117/edejyvx4wt0zuqwj95xq.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/a5acetprjnqghyaknucd.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463697/zabwipx5eij2wtvy7g35.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463695/cymvrwsipldwlujhtnqr.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463692/mweyotba7jqdboewjx8w.jpg',
-  'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463692/cxdzknbhsbehcyn41fqx.jpg',
-]
+// Array of images with a corresponding section key for the background change
+const imageConfig = {
+  hero: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
+  services:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755749709/z96ytmzu77b7shnorn8x.jpg',
+  about:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
+  programs:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
+  gallery:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
+  pricing:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/nw4bgkxrvpxrv7p29mrp.jpg',
+  faq: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/tsznr5ml8vvwlv455vqh.jpg',
+  testimonials:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427117/edejyvx4wt0zuqwj95xq.jpg',
+  contact:
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/a5acetprjnqghyaknucd.jpg',
+}
+
+// Preload all images to prevent flickering
+const preloadImages = (urls: string[]) => {
+  urls.forEach((url: string) => {
+    const img = new Image()
+    img.src = url
+  })
+}
 
 const JanePokkinenSite: FC = () => {
-  const [currentBgImage, setCurrentBgImage] = useState(imageList[0])
-  const [showTopButton, setShowTopButton] = useState(false)
-  const pageRef = useRef<HTMLDivElement>(null)
+  const [currentBg, setCurrentBg] = useState<string>(imageConfig.hero)
+  const [showTopButton, setShowTopButton] = useState<boolean>(false)
+
+  // Create a ref for each section to observe its intersection
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({})
+
+  // Use a map to simplify section rendering and linking to images
+  const sections = [
+    { component: <HeroSection />, name: 'hero' },
+    { component: <ServicesSection />, name: 'services' },
+    { component: <AboutSection />, name: 'about' },
+    { component: <ProgramsSection />, name: 'programs' },
+    { component: <CardStack />, name: 'gallery' },
+    { component: <PricingSection />, name: 'pricing' },
+    { component: <FAQSection />, name: 'faq' },
+    { component: <TestimonialSection />, name: 'testimonials' },
+    { component: <ContactSection />, name: 'contact' },
+  ]
 
   useEffect(() => {
+    // Preload images on mount
+    preloadImages(Object.values(imageConfig))
+
+    // Observe scroll position for the 'Back to Top' button
     const handleScroll = () => {
-      if (pageRef.current) {
-        const scrollPosition = pageRef.current.scrollTop
-        setShowTopButton(scrollPosition > 1000)
+      setShowTopButton(window.scrollY > 1000)
+    }
 
-        const sectionHeight = window.innerHeight
-        const newImageIndex = Math.floor(scrollPosition / sectionHeight)
-        if (newImageIndex >= 0 && newImageIndex < imageList.length) {
-          setCurrentBgImage(imageList[newImageIndex])
-        }
+    window.addEventListener('scroll', handleScroll)
+
+    // Intersection Observer setup
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionName =
+              entry.target instanceof HTMLElement
+                ? entry.target.dataset.section
+                : undefined
+            if (sectionName && sectionName in imageConfig) {
+              setCurrentBg(imageConfig[sectionName as keyof typeof imageConfig])
+            }
+            // Add a class for the fade-in animation
+            entry.target.classList.add('fade-in')
+          } else {
+            // Optional: remove class when section is not in view
+            entry.target.classList.remove('fade-in')
+          }
+        })
+      },
+      {
+        root: null, // viewport
+        rootMargin: '0px 0px -50% 0px', // Trigger when 50% of the section is visible
+        threshold: 0.1, // Trigger when 10% of the section is visible
       }
-    }
+    )
 
-    const currentPageRef = pageRef.current
-    if (currentPageRef) {
-      currentPageRef.addEventListener('scroll', handleScroll)
-    }
+    // Attach observer to each section ref
+    Object.values(sectionRefs.current).forEach(section => {
+      if (section instanceof HTMLDivElement) {
+        observer.observe(section)
+      }
+    })
 
+    // Cleanup
     return () => {
-      if (currentPageRef) {
-        currentPageRef.removeEventListener('scroll', handleScroll)
-      }
+      window.removeEventListener('scroll', handleScroll)
+      Object.values(sectionRefs.current).forEach(section => {
+        if (section instanceof HTMLDivElement) {
+          observer.unobserve(section)
+        }
+      })
     }
-  }, [])
+  }, []) // Empty dependency array means this runs once on mount
 
   const scrollToTop = () => {
-    if (pageRef.current) {
-      pageRef.current.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <>
-      <div
-        ref={pageRef}
-        className="relative min-h-screen overflow-y-scroll text-gray-800"
-        style={{
-          backgroundImage: `url(${currentBgImage})`,
-          backgroundAttachment: 'fixed',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transition: 'background-image 0.5s ease-in-out',
-        }}
-      >
-        <div className="absolute inset-0 bg-gray-100 bg-opacity-70">
-          <NavBar />
-
-          {/* Use motion.div for sections to add animations */}
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <HeroSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <ServicesSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <AboutSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 5 }}
-            viewport={{ once: true, amount: 'some' }}
-          >
-            <ProgramsSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-            style={{ position: 'relative' }}
-          >
-            {/*<ImageGallerySection />*/}
-            <CardStack />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <PricingSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <FAQSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <TestimonialSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <ContactSection />
-          </motion.div>
-          <hr className="my-10" />
-
-          <Footer />
+      <div className="relative min-h-screen text-gray-800">
+        <div className="fixed inset-0 z-0">
+          {Object.entries(imageConfig).map(([key, url]) => (
+            <div
+              key={key}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out`}
+              style={{
+                backgroundImage: `url(${url})`,
+                opacity: url === currentBg ? 1 : 0,
+              }}
+            />
+          ))}
+          {/* This is the new, single, semi-transparent overlay */}
+          <div className="absolute inset-0 z-10 bg-gray-100 opacity-70" />
         </div>
 
-        {showTopButton && (
-          <button
-            onClick={scrollToTop}
-            className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-gray-600 to-blue-500 shadow-lg hover:from-blue-600 hover:to-purple-600 transition"
-            aria-label="Back to Top"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={3}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 15l7-7 7 7"
-              />
-            </svg>
-          </button>
-        )}
+        <NavBar />
+
+        <div className="relative z-20">
+          {sections.map(section => (
+            <React.Fragment key={section.name}>
+              <div
+                ref={el => (sectionRefs.current[section.name] = el)}
+                data-section={section.name}
+                className="section-container"
+              >
+                {section.component}
+              </div>
+              {section.name !== 'contact' && <hr className="my-10" />}
+            </React.Fragment>
+          ))}
+          <Footer />
+        </div>
       </div>
+
+      {showTopButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-gray-600 to-blue-500 shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+          aria-label="Back to Top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={3}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 15l7-7 7 7"
+            />
+          </svg>
+        </button>
+      )}
     </>
   )
 }

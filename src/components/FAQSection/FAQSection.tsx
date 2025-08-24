@@ -8,9 +8,15 @@ const FAQSection: FC = () => {
   const faqQuestions = [0, 1, 2, 3]
 
   return (
-    <section id="faq" className="bg-gray-900 bg-opacity-40 py-16 md:py-24">
+    <section
+      id="faq"
+      className="bg-gray-700 bg-opacity-5 dark:opacity-70 py-16 md:py-24 md:h-[800px]"
+    >
       <Container>
-        <SectionTitle className="text-gray-300" title={t('faq.title')} />
+        <SectionTitle
+          className="text-gray-900 dark:text-gray-300"
+          title={t('faq.title')}
+        />
 
         <div className="mx-auto mt-10 grid max-w-3xl gap-6">
           {/* Iterate through a static list of indices to get the translated questions */}

@@ -11,7 +11,7 @@ const AboutSection: FC = () => {
   return (
     <section
       id="about"
-      className="py-16 md:py-24 relative overflow-hidden text-gray-100 dark:text-gray-200 bg-gray-900 bg-opacity-40"
+      className="flex flex-row items-center py-16 md:py-24 relative overflow-hidden text-gray-900 dark:text-gray-200 bg-gray-700 bg-opacity-5  md:h-[800px]"
     >
       <Container>
         <SectionTitle title={t('about.title')} subtitle={t('about.subtitle')} />
@@ -19,8 +19,8 @@ const AboutSection: FC = () => {
         <div className="md:px-24 mx-auto mt-8 grid max-w-4xl gap-3 bg-transparent">
           {aboutBullets.map(i => (
             <div key={i} className="flex items-center gap-3 text-base">
-              <Check className="mt-1 h-4 w-4 flex-none text-blue-300" />
-              <span className="text-gray-200">{t(`about.bullets.${i}`)}</span>
+              <Check className="mt-1 h-4 w-4 flex-none text-blue-900" />
+              <span className="text-gray-900">{t(`about.bullets.${i}`)}</span>
             </div>
           ))}
         </div>
