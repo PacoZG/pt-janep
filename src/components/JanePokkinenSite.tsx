@@ -136,7 +136,7 @@ const JanePokkinenSite: FC = () => {
             />
           ))}
           {/* This is the new, single, semi-transparent overlay */}
-          <div className="absolute inset-0 z-10 bg-gray-100 opacity-70" />
+          <div className="absolute inset-0 z-10 bg-gray-900 opacity-70" />
         </div>
 
         <NavBar />
@@ -145,7 +145,9 @@ const JanePokkinenSite: FC = () => {
           {sections.map(section => (
             <React.Fragment key={section.name}>
               <div
-                ref={el => (sectionRefs.current[section.name] = el)}
+                ref={el => {
+                  sectionRefs.current[section.name] = el
+                }}
                 data-section={section.name}
                 className="section-container"
               >
