@@ -62,17 +62,14 @@ const JanePokkinenSite: FC = () => {
   ]
 
   useEffect(() => {
-    // Preload images on mount
     preloadImages(Object.values(imageConfig))
+    const localSectionRefs = { ...sectionRefs.current }
 
-    // Observe scroll position for the 'Back to Top' button
     const handleScroll = () => {
       setShowTopButton(window.scrollY > 1000)
     }
-
     window.addEventListener('scroll', handleScroll)
 
-    // Intersection Observer setup
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -84,32 +81,28 @@ const JanePokkinenSite: FC = () => {
             if (sectionName && sectionName in imageConfig) {
               setCurrentBg(imageConfig[sectionName as keyof typeof imageConfig])
             }
-            // Add a class for the fade-in animation
             entry.target.classList.add('fade-in')
           } else {
-            // Optional: remove class when section is not in view
             entry.target.classList.remove('fade-in')
           }
         })
       },
       {
-        root: null, // viewport
-        rootMargin: '0px 0px -50% 0px', // Trigger when 50% of the section is visible
-        threshold: 0.1, // Trigger when 10% of the section is visible
+        root: null,
+        rootMargin: '0px 0px -50% 0px',
+        threshold: 0.1,
       }
     )
 
-    // Attach observer to each section ref
-    Object.values(sectionRefs.current).forEach(section => {
+    Object.values(localSectionRefs).forEach(section => {
       if (section instanceof HTMLDivElement) {
         observer.observe(section)
       }
     })
 
-    // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      Object.values(sectionRefs.current).forEach(section => {
+      Object.values(localSectionRefs).forEach(section => {
         if (section instanceof HTMLDivElement) {
           observer.unobserve(section)
         }
