@@ -28,7 +28,7 @@ const TestimonialSection: FC = () => {
   return (
     <section
       id="testimonials"
-      className="bg-gray-700 bg-opacity-5 dark:bg-gray-900 dark:bg-opacity-40 py-16 md:py-24 md:h-[800px]"
+      className="flex flex-row items-center h-full bg-gray-700 bg-opacity-5 dark:bg-gray-900 dark:bg-opacity-40 py-16 md:py-24 md:h-[800px]"
     >
       <Container>
         <SectionTitle

@@ -15,7 +15,7 @@ const PricingSection: FC = () => {
   return (
     <section
       id="pricing"
-      className="bg-gray-700 bg-opacity-5 dark:bg-opacity-70 py-16 md:py-24"
+      className="flex flex-row items-center h-full bg-gray-700 bg-opacity-5 dark:bg-opacity-70 py-16 md:py-24 md:h-[800px]"
     >
       <Container>
         <SectionTitle

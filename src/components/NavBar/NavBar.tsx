@@ -58,9 +58,7 @@ const NavBar: FC = () => {
             className="inline-flex cursor-pointer items-center rounded-full border border-transparent bg-gray-200 px-2.5 py-0.5 text-sm font-semibold text-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-gray-300"
             onClick={useLanguageModel.handleUsersLanguage}
           >
-            {useLanguageModel.usersLanguage === 'fi'
-              ? 'Suomi / EN'
-              : 'EN / Suomi'}
+            {useLanguageModel.usersLanguage === 'fi' ? 'English' : 'Suomi'}
           </span>
         </div>
       </Container>
