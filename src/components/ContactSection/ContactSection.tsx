@@ -28,7 +28,7 @@ const ContactSection: FC = () => {
   return (
     <section
       id="contact"
-      className="bg-gray-700 bg-opacity-5 dark:bg-gray-900 dark:bg-opacity-40 py-16 md:py-24 "
+      className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px]"
     >
       <Container>
         <SectionTitle

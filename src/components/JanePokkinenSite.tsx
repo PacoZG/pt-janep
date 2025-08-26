@@ -129,7 +129,7 @@ const JanePokkinenSite: FC = () => {
             />
           ))}
           {/* This is the new, single, semi-transparent overlay */}
-          <div className="absolute inset-0 z-10 bg-gray-900 opacity-70" />
+          {/*<div className="absolute inset-0 z-10 bg-gray-900 opacity-70" />*/}
         </div>
 
         <NavBar />

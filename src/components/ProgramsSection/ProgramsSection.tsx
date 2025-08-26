@@ -51,7 +51,7 @@ const ProgramsSection: FC = () => {
   return (
     <section
       id="programs"
-      className="flex flex-row items-center py-16 md:py-24 bg-gray-700 bg-opacity-5 md:h-[800px]"
+      className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px]"
     >
       <div className="flex flex-col items-center w-full">
         <SectionTitle

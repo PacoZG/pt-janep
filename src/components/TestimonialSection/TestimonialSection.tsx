@@ -28,7 +28,7 @@ const TestimonialSection: FC = () => {
   return (
     <section
       id="testimonials"
-      className="flex flex-row items-center h-full bg-gray-700 bg-opacity-5 dark:bg-gray-900 dark:bg-opacity-40 py-16 md:py-24 md:h-[800px]"
+      className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px]"
     >
       <Container>
         <SectionTitle
@@ -36,7 +36,7 @@ const TestimonialSection: FC = () => {
           title="What clients say"
           subtitle="Don't just take my word for it. Here's what people are saying about their journey with me."
         />
-        <div className="mt-10 grid gap-8 lg:grid-cols-3">
+        <div className="mt-20 grid gap-8 lg:grid-cols-3">
           {testimonials.map((testimonial, i) => (
             <div
               key={i}

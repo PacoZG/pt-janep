@@ -14,7 +14,7 @@ const HeroSection: FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gray-600 bg-opacity-60">
+    <section className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px]">
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-24">
         <Image
           className={'rounded-3xl '}

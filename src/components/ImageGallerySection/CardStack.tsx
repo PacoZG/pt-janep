@@ -47,7 +47,10 @@ const CardStack = () => {
   }
 
   return (
-    <section id="gallery" className="bg-gray-700 bg-opacity-5 py-16 md:py-24">
+    <section
+      id="gallery"
+      className="py-16 md:py-24 bg-gray-600 bg-opacity-40 md:h-[1024px]"
+    >
       <SectionTitle
         className="text-gray-900"
         title="Gallery"

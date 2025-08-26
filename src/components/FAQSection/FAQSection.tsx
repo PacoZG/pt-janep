@@ -10,7 +10,7 @@ const FAQSection: FC = () => {
   return (
     <section
       id="faq"
-      className="bg-gray-700 bg-opacity-5 dark:opacity-70 py-16 md:py-24 md:h-[800px]"
+      className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px]"
     >
       <Container>
         <SectionTitle
