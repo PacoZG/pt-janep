@@ -2,28 +2,11 @@ import Container from '@/components/Container/Container'
 import SectionTitle from '@/components/SectionTitle/SectionTitle'
 import { Star } from 'lucide-react'
 import React, { FC } from 'react'
+import { useTranslations } from 'next-intl'
 
 const TestimonialSection: FC = () => {
-  const testimonials = [
-    {
-      quote:
-        "Jane's coaching changed my life. I have more energy, I'm stronger, and I feel more confident than ever before.",
-      author: 'Sarah J.',
-      stars: 5,
-    },
-    {
-      quote:
-        'The personalized plan and constant encouragement made all the difference. Highly recommend!',
-      author: 'Mark R.',
-      stars: 5,
-    },
-    {
-      quote:
-        'As a beginner, I was nervous, but Jane made me feel comfortable and guided me every step of the way.',
-      author: 'Laura P.',
-      stars: 4,
-    },
-  ]
+  const t = useTranslations()
+  const testimonials = [0, 1, 2]
 
   return (
     <section
@@ -33,28 +16,36 @@ const TestimonialSection: FC = () => {
       <Container>
         <SectionTitle
           className="text-gray-900"
-          title="What clients say"
-          subtitle="Don't just take my word for it. Here's what people are saying about their journey with me."
+          title={t('testimonial.title')}
+          subtitle={t('testimonial.subtitle')}
         />
         <div className="mt-20 grid gap-8 lg:grid-cols-3">
-          {testimonials.map((testimonial, i) => (
+          {testimonials.map((i: number) => (
             <div
               key={i}
-              className="rounded-2xl border border-gray-300 bg-white p-6 text-gray-800 shadow-sm"
+              className="rounded-2xl border border-gray-300 bg-gray-100 p-6 text-gray-800 shadow-sm md:h-56"
             >
-              <div className="flex items-center gap-1 text-blue-600">
-                {[...Array(testimonial.stars)].map((_, starIndex) => (
+              <div className="flex items-center gap-1 text-blue-600 mb-3">
+                {[
+                  ...Array(Number(t(`testimonial.testimonials.${i}.stars`))),
+                ].map((_, starIndex) => (
                   <Star key={starIndex} className="h-5 w-5 fill-blue-600" />
                 ))}
-                {[...Array(5 - testimonial.stars)].map((_, starIndex) => (
+                {[
+                  ...Array(
+                    5 - Number(t(`testimonial.testimonials.${i}.stars`))
+                  ),
+                ].map((_, starIndex) => (
                   <Star key={starIndex} className="h-5 w-5 text-gray-400" />
                 ))}
               </div>
-              <p className="mt-4 text-sm italic text-gray-700">
-                {`"${testimonial.quote}"`}
+
+              <p className="mt-4 text-sm italic text-gray-700 md:h-24">
+                {t(`testimonial.testimonials.${i}.quote`)}
               </p>
+
               <p className="mt-4 font-semibold text-gray-800">
-                - {testimonial.author}
+                - {t(`testimonial.testimonials.${i}.author`)}
               </p>
             </div>
           ))}

@@ -185,6 +185,28 @@
       }
     ]
   },
+  "testimonial":{
+    "title": "What clients say",
+    "subtitle": "Don't just take my word for it. Here's what people are saying about their journey with me.",
+    "testimonials": [
+    {
+      "quote": "Jane's coaching changed my life. I have more energy, I'm stronger, and I feel more confident than ever before.",
+      "author": "Sarah J.",
+      "stars": "5"
+    },
+    {
+      "quote": "The personalized plan and constant encouragement made all the difference. Highly recommend!",
+      "author": "Mark R.",
+      "stars": "5"
+    },
+    {
+      "quote": "As a beginner, I was nervous, but Jane made me feel comfortable and guided me every step of the way.",
+      "author": "Laura P.",
+      "stars": "4"
+    }
+  ]
+
+  },
   "contact": {
     "title": "Let’s talk",
     "subtitle": "Tell me your goals and I’ll map your next steps.",

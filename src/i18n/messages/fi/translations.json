@@ -185,6 +185,27 @@
       }
     ]
   },
+  "testimonial": {
+    "title": "Mitä asiakkaat sanovat",
+    "subtitle": "Älä usko vain minun sanaani. Tässä on, mitä ihmiset kertovat omasta matkasta kanssani.",
+    "testimonials": [
+      {
+        "quote": "Janen valmennus muutti elämäni. Minulla on enemmän energiaa, olen vahvempi ja tunnen oloni itsevarmemmaksi kuin koskaan ennen.",
+        "author": "Sarah J.",
+        "stars": "5"
+      },
+      {
+        "quote": "Yksilöllinen suunnitelma ja jatkuva kannustus tekivät kaiken eron. Suosittelen lämpimästi!",
+        "author": "Mark R.",
+        "stars": "5"
+      },
+      {
+        "quote": "Aloittelijana olin hermostunut, mutta Jane sai minut tuntemaan oloni mukavaksi ja ohjasi joka askeleella.",
+        "author": "Laura P.",
+        "stars": "4"
+      }
+    ]
+  },
   "contact": {
     "title": "Jutellaanko?",
     "subtitle": "Kerro tavoitteesi – teen sinulle reitin seuraaviin askeliin.",
