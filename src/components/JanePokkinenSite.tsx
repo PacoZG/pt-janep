@@ -8,29 +8,16 @@ import AboutSection from '@/components/AboutSection/AboutSection'
 import ServicesSection from '@/components/ServicesSection/ServicesSection'
 import FAQSection from '@/components/FAQSection/FAQSection'
 import ContactSection from '@/components/ContactSection/ContactSection'
-import ProgramsSection from '@/components/ProgramsSection/ProgramsSection'
 import PricingSection from '@/components/PricingSections/PricingSection'
 import Footer from '@/components/Footer/Footer'
 import CardStack from '@/components/ImageGallerySection/CardStack'
 
 // Array of images with a corresponding section key for the background change
 const imageConfig = {
-  hero: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427119/vjwvf7qpms8uqu7jetts.jpg',
-  services:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755749709/z96ytmzu77b7shnorn8x.jpg',
-  about:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/x0uiqbalssk1k4x57eph.jpg',
-  programs:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
+  hero: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757099034/iulhfzwmctbqcd8ebpux.jpg',
   gallery:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427121/jjkr3eaxhzr6wuyfqmmx.jpg',
-  pricing:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/nw4bgkxrvpxrv7p29mrp.jpg',
-  faq: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427118/tsznr5ml8vvwlv455vqh.jpg',
-  testimonials:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427117/edejyvx4wt0zuqwj95xq.jpg',
-  contact:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463820/a5acetprjnqghyaknucd.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
+  faq: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463697/zabwipx5eij2wtvy7g35.jpg',
 }
 
 // Preload all images to prevent flickering
@@ -53,7 +40,6 @@ const JanePokkinenSite: FC = () => {
     { component: <HeroSection />, name: 'hero' },
     { component: <ServicesSection />, name: 'services' },
     { component: <AboutSection />, name: 'about' },
-    { component: <ProgramsSection />, name: 'programs' },
     { component: <CardStack />, name: 'gallery' },
     { component: <PricingSection />, name: 'pricing' },
     { component: <FAQSection />, name: 'faq' },
@@ -128,8 +114,6 @@ const JanePokkinenSite: FC = () => {
               }}
             />
           ))}
-          {/* This is the new, single, semi-transparent overlay */}
-          {/*<div className="absolute inset-0 z-10 bg-gray-900 opacity-70" />*/}
         </div>
 
         <NavBar />

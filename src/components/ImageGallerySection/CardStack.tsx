@@ -52,7 +52,7 @@ const CardStack = () => {
       className="py-16 md:py-24 bg-gray-600 bg-opacity-40 md:h-[1024px]"
     >
       <SectionTitle
-        className="text-gray-900"
+        className="text-gray-400"
         title="Gallery"
         // subtitle="A look into my coaching and training sessions."
       />

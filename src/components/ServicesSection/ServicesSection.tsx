@@ -17,6 +17,7 @@ import {
   Navigation,
   Pagination,
 } from 'swiper/modules'
+import './ServiceSection.css'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -57,6 +58,7 @@ const ServicesSection: FC = () => {
           subtitle={t('services.subtitle')}
         />
         <Swiper
+          className={''}
           grabCursor={true}
           centeredSlides={true}
           loop={true}
@@ -95,7 +97,7 @@ const ServicesSection: FC = () => {
                 {/* This div now has a fixed width to allow slides to stack next to each other */}
                 <div className="flex flex-col items-center gap-6 h-full w-auto md:w-[640px] mx-auto rounded-2xl border-0 text-gray-800 shadow-sm p-12 md:p-24">
                   <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100">
-                    <IconComponent className="h-5 w-5 text-blue-600" />
+                    <IconComponent className="h-5 w-5 text-red-600" />
                   </div>
                   <h3 className=" text-[36px] text-center  font-semibold leading-none tracking-tight text-gray-900">
                     {t(`services.items.${i}.title`)}

@@ -27,7 +27,7 @@ const NavBar: FC = () => {
       <Container className="flex items-center justify-between py-3">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-100">
-            <Dumbbell className="h-5 w-5 text-blue-600" />
+            <Dumbbell className="h-5 w-5 text-red-600" />
           </div>
 
           <div>
@@ -55,7 +55,7 @@ const NavBar: FC = () => {
 
         <div className="flex items-center gap-2">
           <span
-            className="inline-flex cursor-pointer items-center rounded-full border border-transparent bg-gray-200 px-2.5 py-0.5 text-sm font-semibold text-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-gray-300"
+            className="inline-flex cursor-pointer items-center rounded-full border border-transparent bg-red-800 px-2.5 py-0.5 text-sm font-semibold text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-gray-300"
             onClick={useLanguageModel.handleUsersLanguage}
           >
             {useLanguageModel.usersLanguage === 'fi' ? 'English' : 'Suomi'}

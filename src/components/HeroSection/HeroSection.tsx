@@ -19,7 +19,7 @@ const HeroSection: FC = () => {
         <Image
           className={'rounded-3xl '}
           src={
-            'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1635678768/k82chnjvlsftuswvcuow.jpg'
+            'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757101620/kturlarftfi5o1ffu1fp.jpg'
           }
           alt="Jane Pokkinen Coach"
           height={1024}
@@ -37,7 +37,7 @@ const HeroSection: FC = () => {
             </div>
 
             {/* Updated heading and paragraph colors for contrast */}
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-800 sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-400 sm:text-5xl">
               {t('hero.title')}
             </h1>
 
@@ -48,14 +48,14 @@ const HeroSection: FC = () => {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
                 onClick={() => smoothScroll('contact')}
-                className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-8 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                className="transition delay-75 duration-500 ease-in-out inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-red-800 px-8 py-2 text-sm font-medium text-gray-300 shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               >
                 {t('hero.ctaPrimary')}
               </button>
 
               <button
                 onClick={() => smoothScroll('programs')}
-                className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                className="transition delay-75 duration-500 ease-in-out inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-gray-300 bg-gray-500 text-gray-300 px-8 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               >
                 {t('hero.ctaSecondary')}
               </button>
@@ -63,17 +63,17 @@ const HeroSection: FC = () => {
 
             <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-gray-500">
               <div className="inline-flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-blue-700" />
+                <ShieldCheck className="h-4 w-4 text-red-600" />
                 <span className="text-gray-200"> {t('hero.trust1')}</span>
               </div>
 
               <div className="inline-flex items-center gap-2">
-                <Star className="h-4 w-4 text-blue-700" />{' '}
+                <Star className="h-4 w-4 text-red-600" />{' '}
                 <span className="text-gray-200"> {t('hero.trust2')}</span>
               </div>
 
               <div className="inline-flex items-center gap-2">
-                <Coffee className="h-4 w-4 text-blue-700" />
+                <Coffee className="h-4 w-4 text-red-600" />
                 <span className="text-gray-200"> {t('hero.trust3')}</span>
               </div>
             </div>

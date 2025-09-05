@@ -37,9 +37,9 @@ const ContactSection: FC = () => {
           subtitle={t('contact.subtitle')}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-5">
-          <div className="order-2 rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm md:order-1 md:col-span-3">
+          <div className="order-2 rounded-2xl border border-gray-300 bg-gray-800 bg-opacity-75 text-gray-300 shadow-sm md:order-1 md:col-span-3">
             <div className="flex flex-col space-y-1.5 p-6">
-              <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
+              <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">
                 {t('contact.title')}
               </h3>
             </div>
@@ -53,13 +53,13 @@ const ContactSection: FC = () => {
                 onSubmit={handleSendEmail}
               >
                 <div className="grid gap-2">
-                  <label className="text-sm font-medium" htmlFor="name">
+                  <label className="text-sm font-medium text-gray-300" htmlFor="name">
                     {t('contact.name')}
                   </label>
 
                   <input
                     id="name"
-                    className="flex h-9 w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-9 w-full rounded-md border border-gray-600 bg-gray-700 text-gray-200 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder={t('contact.namePlaceholder')}
                     {...fullName.params}
                     name="name"
@@ -68,13 +68,13 @@ const ContactSection: FC = () => {
                 </div>
 
                 <div className="relative grid gap-2">
-                  <label className="text-sm font-medium" htmlFor="email">
+                  <label className="text-sm font-medium text-gray-300" htmlFor="email">
                     {t('contact.email')}
                   </label>
 
                   <input
                     id="email"
-                    className="flex h-9 w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-9 w-full rounded-md border border-gray-600 bg-gray-700 text-gray-200 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="you@example.com"
                     {...email.params}
                     name="email"
@@ -90,13 +90,13 @@ const ContactSection: FC = () => {
                 </div>
 
                 <div className="relative grid gap-2">
-                  <label className="text-sm font-medium" htmlFor="phone">
+                  <label className="text-sm font-medium text-gray-300" htmlFor="phone">
                     {t('contact.phone')}
                   </label>
 
                   <input
                     id="phone"
-                    className="flex h-9 w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex h-9 w-full rounded-md border border-gray-600 bg-gray-700 text-gray-200 px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder="+358 …"
                     {...phone.params}
                     name="phone"
@@ -111,13 +111,13 @@ const ContactSection: FC = () => {
                 </div>
 
                 <div className="grid gap-2">
-                  <label className="text-sm font-medium" htmlFor="message">
+                  <label className="text-sm font-medium text-gray-300" htmlFor="message">
                     {t('contact.message')}
                   </label>
 
                   <textarea
                     id="message"
-                    className="flex min-h-[60px] w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-sm shadow-sm placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex min-h-[60px] w-full rounded-md border border-gray-600 bg-gray-700 text-gray-200 px-3 py-2 text-sm shadow-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     placeholder={t('contact.messagePlaceholder')}
                     name="message"
                     {...message.params}
@@ -146,7 +146,7 @@ const ContactSection: FC = () => {
                       className="scale-75 sm:scale-75 md:scale-80"
                       sitekey={siteKey}
                       onChange={handleVerifyCaptcha}
-                      theme={'light'}
+                      theme={'dark'}
                     />
                   </div>
                 </div>
@@ -154,7 +154,7 @@ const ContactSection: FC = () => {
                 {!showModal ? (
                   <button
                     type="submit"
-                    className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-red-800 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-red-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     disabled={buttonIsDisabled()}
                   >
                     {!sending ? (
@@ -201,15 +201,15 @@ const ContactSection: FC = () => {
           </div>
 
           <div className="order-1 grid content-start gap-4 md:order-2 md:col-span-2">
-            <div className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm">
+            <div className="rounded-2xl border border-gray-300 bg-gray-800 bg-opacity-75 text-gray-300 shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">
                   {t('contact.title')}
                 </h3>
               </div>
 
               <div className="p-6 pt-0">
-                <div className="grid gap-3 text-sm text-gray-700">
+                <div className="grid gap-3 text-sm text-gray-300">
                   <div className="flex items-center gap-2">
                     <Mail className="h-5 w-5" /> jane.pokkinen@gmail.com
                   </div>
@@ -223,7 +223,7 @@ const ContactSection: FC = () => {
                       href={`https://www.instagram.com/ptbarbarella?igsh=bnB1cXpkMm9pMDVx`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-lg transition-colors hover:bg-gray-100"
+                      className="flex items-center gap-2 rounded-lg transition-colors hover:bg-gray-700"
                     >
                       <Instagram className="h-5 w-5" />
 
@@ -234,15 +234,15 @@ const ContactSection: FC = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm">
+            <div className="rounded-2xl border border-gray-300 bg-gray-800 bg-opacity-75 text-gray-300 shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight text-gray-900">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">
                   {t('contact.philosophyTitle')}
                 </h3>
               </div>
 
               <div className="p-6 pt-0">
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-300">
                   {t('contact.philosophyText')}
                 </p>
               </div>

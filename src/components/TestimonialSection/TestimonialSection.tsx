@@ -11,7 +11,7 @@ const TestimonialSection: FC = () => {
   return (
     <section
       id="testimonials"
-      className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px]"
+      className="flex flex-row items-center relative overflow-hidden bg-gray-600 bg-opacity-40 md:h-[1024px] px-8"
     >
       <Container>
         <SectionTitle
@@ -23,13 +23,13 @@ const TestimonialSection: FC = () => {
           {testimonials.map((i: number) => (
             <div
               key={i}
-              className="rounded-2xl border border-gray-300 bg-gray-100 p-6 text-gray-800 shadow-sm md:h-56"
+              className="rounded-2xl border border-gray-300 bg-gray-800 bg-opacity-75 p-6 text-gray-300 shadow-sm md:h-56"
             >
-              <div className="flex items-center gap-1 text-blue-600 mb-3">
+              <div className="flex items-center gap-1 text-red-800 mb-3">
                 {[
                   ...Array(Number(t(`testimonial.testimonials.${i}.stars`))),
                 ].map((_, starIndex) => (
-                  <Star key={starIndex} className="h-5 w-5 fill-blue-600" />
+                  <Star key={starIndex} className="h-5 w-5 fill-red-800" />
                 ))}
                 {[
                   ...Array(
@@ -40,11 +40,11 @@ const TestimonialSection: FC = () => {
                 ))}
               </div>
 
-              <p className="mt-4 text-sm italic text-gray-700 md:h-24">
+              <p className="mt-4 text-sm italic text-gray-300 md:h-24">
                 {t(`testimonial.testimonials.${i}.quote`)}
               </p>
 
-              <p className="mt-4 font-semibold text-gray-800">
+              <p className="mt-4 font-semibold text-gray-300">
                 - {t(`testimonial.testimonials.${i}.author`)}
               </p>
             </div>

@@ -20,7 +20,7 @@ export default function Typewriter() {
   }, [fullText, text])
 
   return (
-    <h1 className="py-6 text-lg md:text-2xl font-mono text-gray-200 max-w-3xl h-56 leading-relaxed">
+    <h1 className="py-6 text-lg md:text-xl font-mono text-gray-200 max-w-3xl h-64 leading-relaxed">
       {text}
       <span
         className={`border-l-2 ml-1 ${

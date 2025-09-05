@@ -14,7 +14,7 @@ const FAQSection: FC = () => {
     >
       <Container>
         <SectionTitle
-          className="text-gray-900 dark:text-gray-300"
+          className="text-gray-400 dark:text-gray-300"
           title={t('faq.title')}
         />
 
@@ -23,15 +23,15 @@ const FAQSection: FC = () => {
           {faqQuestions.map(i => (
             <div
               key={i}
-              className="rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm"
+              className="rounded-2xl border border-gray-300 bg-gray-800 bg-opacity-75 text-gray-300 shadow-sm"
             >
               <div className="flex flex-col space-y-1.5 p-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight text-lg text-gray-900">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight text-lg text-white">
                   {t(`faq.qas.${i}.q`)}
                 </h3>
               </div>
               <div className="p-6 pt-0">
-                <p className="text-gray-700">{t(`faq.qas.${i}.a`)}</p>
+                <p className="text-gray-300">{t(`faq.qas.${i}.a`)}</p>
               </div>
             </div>
           ))}

@@ -19,7 +19,7 @@ const PricingSection: FC = () => {
     >
       <Container>
         <SectionTitle
-          className="text-gray-900 dark:text-gray-400"
+          className="text-gray-400 dark:text-gray-400"
           title={t('pricing.title')}
           subtitle={t('pricing.subtitle')}
         />
@@ -32,36 +32,36 @@ const PricingSection: FC = () => {
             return (
               <div
                 key={i}
-                className={`rounded-2xl border border-gray-300 bg-white text-gray-800 shadow-sm ${
-                  featured ? 'border-blue-600 shadow-xl' : ''
+                className={`rounded-2xl border border-gray-300 bg-gray-800 bg-opacity-75 text-gray-300 shadow-sm ${
+                  featured ? 'border-red-800 shadow-xl' : ''
                 }`}
               >
                 <div className="flex flex-col space-y-1.5 p-6">
                   <span
-                    className={`inline-flex w-fit items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${featured ? 'border-transparent bg-blue-600 text-white hover:bg-blue-700' : 'border-transparent bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                    className={`inline-flex w-fit items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${featured ? 'border-transparent bg-red-800 text-white hover:bg-red-900' : 'border-transparent bg-gray-600 text-gray-300 hover:bg-gray-700'}`}
                   >
                     {tierName}
                   </span>
-                  <div className="mt-2 text-4xl font-bold text-gray-900">
+                  <div className="mt-2 text-4xl font-bold text-white">
                     {t(`pricing.tiers.${i}.price`)}{' '}
-                    <span className="text-base font-normal text-gray-500">
+                    <span className="text-base font-normal text-gray-400">
                       {t(`pricing.tiers.${i}.period`)}
                     </span>
                   </div>
                 </div>
                 <div className="p-6 pt-0">
-                  <ul className="grid gap-2 text-sm text-gray-700">
+                  <ul className="grid gap-2 text-sm text-gray-300">
                     {/* Nested loop for the features of each tier */}
                     {pricingFeatures.map(j => (
                       <li key={j} className="flex items-start gap-2">
-                        <Check className="mt-0.5 h-4 w-4 text-blue-600" />{' '}
+                        <Check className="mt-0.5 h-4 w-4 text-red-800" />{' '}
                         {t(`pricing.tiers.${i}.features.${j}`)}
                       </li>
                     ))}
                   </ul>
                   <a
                     href="#contact"
-                    className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-md bg-red-800 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-red-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 mt-4"
                   >
                     {useLanguageModel.usersLanguage === 'fi'
                       ? 'Aloita'
@@ -72,7 +72,7 @@ const PricingSection: FC = () => {
             )
           })}
         </div>
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p className="mt-6 text-center text-sm text-gray-400">
           {t('pricing.note')}
         </p>
       </Container>
