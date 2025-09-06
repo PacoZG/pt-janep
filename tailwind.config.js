@@ -22,10 +22,15 @@ module.exports = {
           '0%, 100%': { borderColor: 'transparent' },
           '50%': { borderColor: 'white' },
         },
+        slide: {
+          'from': { transform: 'translateX(0)' },
+          'to': { transform: 'translateX(-100%)' },
+        },
       },
       animation: {
         typing: 'typing 3s steps(30, end) forwards',
         blink: 'blink 1s step-end infinite',
+        slide: 'slide 60s linear infinite',
       },
     },
     screens: {

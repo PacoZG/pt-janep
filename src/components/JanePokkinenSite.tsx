@@ -10,13 +10,13 @@ import FAQSection from '@/components/FAQSection/FAQSection'
 import ContactSection from '@/components/ContactSection/ContactSection'
 import PricingSection from '@/components/PricingSections/PricingSection'
 import Footer from '@/components/Footer/Footer'
-import CardStack from '@/components/ImageGallerySection/CardStack'
+import ImageGallery from '@/components/Gallery/Gallery'
 
 // Array of images with a corresponding section key for the background change
 const imageConfig = {
   hero: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757099034/iulhfzwmctbqcd8ebpux.jpg',
   gallery:
-    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',
+    'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757155195/mkag7swvgkymy2eanejc.jpg',
   faq: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463697/zabwipx5eij2wtvy7g35.jpg',
 }
 
@@ -40,7 +40,8 @@ const JanePokkinenSite: FC = () => {
     { component: <HeroSection />, name: 'hero' },
     { component: <ServicesSection />, name: 'services' },
     { component: <AboutSection />, name: 'about' },
-    { component: <CardStack />, name: 'gallery' },
+    { component: <ImageGallery />, name: 'gallery' },
+    // { component: <ImageSlider />, name: 'slider' },
     { component: <PricingSection />, name: 'pricing' },
     { component: <FAQSection />, name: 'faq' },
     { component: <TestimonialSection />, name: 'testimonials' },
