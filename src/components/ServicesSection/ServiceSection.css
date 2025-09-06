@@ -1,11 +1,21 @@
 /* Arrows */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #ff0000; /* red chevrons */
+  color: #ff0000 !important; /* red chevrons */
+    padding-left: 250px;
+    padding-right: 250px;
 }
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: #2563eb; /* blue on hover */
+}
+
+.swiper-button-prev {
+  left: -50px;
+}
+
+.swiper-button-next {
+  right: -50px;
 }
 
 /* Dots */
@@ -14,5 +24,12 @@
   opacity: 1; /* makes them solid */
 }
 .swiper-pagination-bullet-active {
-  background: #2563eb; /* blue-600 for active dot */
+  background: #ff0000 !important; /* red color for active dot */
+}
+
+@media (max-width: 767px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
 }
