@@ -21,6 +21,8 @@ export const ContactModel = () => {
   const phone = useField('tel')
   const message = useField('text')
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+  const emailjsServiceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ''
+  const emailjsTemplateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ''
   // const theme: Theme = getTheme()
   const log = logger()
 
@@ -53,8 +55,8 @@ export const ContactModel = () => {
     ) {
       emailjs
         .sendForm(
-          'service_6ked5rp',
-          'template_rruy7ci',
+          emailjsServiceID,
+          emailjsTemplateID,
           event.target as HTMLFormElement,
           'ayNQSJVuw3mKwJnpn'
         )

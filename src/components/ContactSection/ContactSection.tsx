@@ -53,8 +53,12 @@ const ContactSection: FC = () => {
                 onSubmit={handleSendEmail}
               >
                 <div className="grid gap-2">
-                  <label className="text-sm font-medium text-gray-300" htmlFor="name">
+                  <label
+                    className="text-sm font-medium text-gray-300"
+                    htmlFor="name"
+                  >
                     {t('contact.name')}
+                    <span className="text-red-700">{' *'}</span>
                   </label>
 
                   <input
@@ -68,8 +72,12 @@ const ContactSection: FC = () => {
                 </div>
 
                 <div className="relative grid gap-2">
-                  <label className="text-sm font-medium text-gray-300" htmlFor="email">
+                  <label
+                    className="text-sm font-medium text-gray-300"
+                    htmlFor="email"
+                  >
                     {t('contact.email')}
+                    <span className="text-red-700">{' *'}</span>
                   </label>
 
                   <input
@@ -90,7 +98,10 @@ const ContactSection: FC = () => {
                 </div>
 
                 <div className="relative grid gap-2">
-                  <label className="text-sm font-medium text-gray-300" htmlFor="phone">
+                  <label
+                    className="text-sm font-medium text-gray-300"
+                    htmlFor="phone"
+                  >
                     {t('contact.phone')}
                   </label>
 
@@ -111,8 +122,12 @@ const ContactSection: FC = () => {
                 </div>
 
                 <div className="grid gap-2">
-                  <label className="text-sm font-medium text-gray-300" htmlFor="message">
+                  <label
+                    className="text-sm font-medium text-gray-300"
+                    htmlFor="message"
+                  >
                     {t('contact.message')}
+                    <span className="text-red-700">{' *'}</span>
                   </label>
 
                   <textarea
@@ -163,13 +178,13 @@ const ContactSection: FC = () => {
                       <div className="flex flex-row items-center gap-3">
                         <Spinner className="animate-spin h-5 w-5 text-current" />
 
-                        <label>{t('sending')}</label>
+                        <label>{t('contact.sending')}</label>
                       </div>
                     )}
                   </button>
                 ) : (
                   <div className="contact-sent-message-display">
-                    {t('sent')}
+                    {t('contact.sent')}
                   </div>
                 )}
 
@@ -188,11 +203,11 @@ const ContactSection: FC = () => {
                 <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
                   <div className="bg-white dark:bg-gray-700 rounded-lg p-8 shadow-2xl text-center max-w-sm w-full">
                     <p className="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">
-                      {t('sent')}!
+                      {t('contact.sent')}!
                     </p>
 
                     <p className="text-lg text-gray-800 dark:text-gray-200">
-                      {t('message-sent')}
+                      {t('contact.message-sent')}
                     </p>
                   </div>
                 </div>
