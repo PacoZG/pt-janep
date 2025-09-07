@@ -12,7 +12,6 @@ import PricingSection from '@/components/PricingSections/PricingSection'
 import Footer from '@/components/Footer/Footer'
 import ImageGallery from '@/components/Gallery/Gallery'
 
-// Array of images with a corresponding section key for the background change
 const imageConfig = {
   hero: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757099034/iulhfzwmctbqcd8ebpux.jpg',
   gallery:
@@ -20,7 +19,6 @@ const imageConfig = {
   faq: 'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755463697/zabwipx5eij2wtvy7g35.jpg',
 }
 
-// Preload all images to prevent flickering
 const preloadImages = (urls: string[]) => {
   urls.forEach((url: string) => {
     const img = new Image()
@@ -141,12 +139,12 @@ const JanePokkinenSite: FC = () => {
       {showTopButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-gray-600 to-blue-500 shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+          className="fixed bottom-6 right-6 z-50 rounded-full bg-red-800 p-2 text-gray-300 shadow-lg transition duration-500 ease-in-out hover:scale-110 hover:bg-red-700"
           aria-label="Back to Top"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-white"
+            className="h-7 w-7"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

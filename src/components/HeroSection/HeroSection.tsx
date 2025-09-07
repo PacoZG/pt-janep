@@ -38,7 +38,7 @@ const HeroSection: FC = () => {
 
           <button
             onClick={() => smoothScroll('contact')}
-            className="transition duration-500 ease-in-out inline-flex h-12 w-full items-center justify-center whitespace-nowrap rounded-md bg-red-800 px-8 py-2 text-sm font-medium text-gray-300 shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            className="transition duration-500 inline-flex h-12 w-full items-center justify-center whitespace-nowrap rounded-md bg-red-800 px-8 py-2 text-sm font-medium text-gray-300 shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
             {t('hero.ctaPrimary')}
           </button>

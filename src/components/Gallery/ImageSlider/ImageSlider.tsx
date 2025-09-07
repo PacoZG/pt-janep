@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import SectionTitle from '@/components/SectionTitle/SectionTitle'
 
 const imageList: string[] = [
   'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757155195/mkag7swvgkymy2eanejc.jpg',
@@ -17,13 +16,7 @@ type ImageSwiperProps = {
 
 const ImageSlider: React.FC<ImageSwiperProps> = () => {
   return (
-    <div className="hidden md:block flex flex-col justify-center items-center bg-gray-600 bg-opacity-40 h-[580px] pt-9">
-      <SectionTitle
-        className="text-gray-400"
-        title="Gallery"
-        // subtitle="A look into my coaching and training sessions."
-      />
-
+    <div className="hidden md:flex flex-col justify-center items-center bg-gray-600 bg-opacity-40 h-[580px] pt-9">
       <div className="max-w-screen-5xl overflow-hidden py-16 px-32 relative">
         <div className="flex items-center">
           <div className="flex-shrink-0 flex animate-slide items-center">

@@ -1,4 +1,3 @@
-import SectionTitle from '@/components/SectionTitle/SectionTitle'
 import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -8,9 +7,6 @@ import {
   Navigation,
   Pagination,
 } from 'swiper/modules'
-// import './ServiceSection.css'
-
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -46,11 +42,6 @@ const ImageSwiper: FC<ImageSwiperProps> = ({ className }) => {
           }
         >
           <div className="relative z-10 w-full">
-            <SectionTitle
-              className="flex flex-col items-center mx-auto max-w-xl text-center pb-8"
-              title={t('nav.gallery')}
-            />
-
             <Swiper
               className={''}
               grabCursor={true}
@@ -82,7 +73,7 @@ const ImageSwiper: FC<ImageSwiperProps> = ({ className }) => {
                 return (
                   <SwiperSlide key={i} className="flex justify-center">
                     <div
-                      className=" h-96 w-auto rounded-lg overflow-hidden shadow-lg"
+                      className="flex justify-center h-96 w-auto rounded-lg overflow-hidden shadow-lg"
                       key={`a-${i}`}
                     >
                       <Image
