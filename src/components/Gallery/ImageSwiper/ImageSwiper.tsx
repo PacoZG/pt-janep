@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { useTranslations } from 'next-intl'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import {
   Autoplay,
@@ -20,7 +19,6 @@ type ImageSwiperProps = {
 }
 
 const ImageSwiper: FC<ImageSwiperProps> = ({ className }) => {
-  const t = useTranslations()
   const imageList: string[] = [
     'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1757155195/mkag7swvgkymy2eanejc.jpg',
     'https://res.cloudinary.com/dbn5gpgi5/image/upload/v1755427123/kxcvzzebkqers0gx3zh3.jpg',

@@ -4,11 +4,8 @@ import emailjs from '@emailjs/browser'
 import React, { useState } from 'react'
 import { useField } from '@/hooks/InputHooks'
 import logger from '@/utils/logger'
-// import { getTheme } from '@/utils/localdb'
-// import { Theme } from '@/hooks/useDarkMode'
 
 type EmailValidation = () => boolean
-type HandleSendEmail = (event: React.FormEvent<HTMLFormElement>) => void
 type DisableButton = () => boolean
 
 export const ContactModel = () => {
@@ -23,7 +20,6 @@ export const ContactModel = () => {
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
   const emailjsServiceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ''
   const emailjsTemplateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ''
-  // const theme: Theme = getTheme()
   const log = logger()
 
   const emailPattern =
@@ -42,9 +38,7 @@ export const ContactModel = () => {
     setDisabled(!disabled)
   }
 
-  const handleSendEmail: HandleSendEmail = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSendEmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setSending(true)
     if (
@@ -93,6 +87,5 @@ export const ContactModel = () => {
     phone,
     message,
     siteKey,
-    // theme,
   }
 }

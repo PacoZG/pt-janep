@@ -1,12 +1,13 @@
 /* istanbul ignore file */
+import { Theme } from '@/hooks/useDarkMode'
 
-const setTheme: (theme: string) => void = (theme: string) => {
+const setTheme = (theme: string) => {
   if (typeof window !== 'undefined') {
     localStorage.setItem('usersTheme', JSON.stringify(theme))
   }
 }
 
-const getTheme: () => any | null = () => {
+const getTheme: () => Theme | null = () => {
   if (typeof window !== 'undefined') {
     const stored = localStorage.getItem('usersTheme')
 
@@ -22,7 +23,7 @@ const setLanguage = (lang: string) => {
   }
 }
 
-const getLanguage = () => {
+const getLanguage: () => string | null = () => {
   if (typeof window !== 'undefined') {
     const stored = localStorage.getItem('usersLanguage')
 

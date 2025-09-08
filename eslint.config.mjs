@@ -54,13 +54,13 @@ const eslintConfig = [
     },
     rules: {
       ...typescriptEslint.configs.recommended.rules,
-      'no-console': 'warn',
+      'no-console': 'error',
       'import/extensions': 'off',
       'import/prefer-default-export': 'off',
-      'no-use-before-define': 'off',
+      'no-use-before-define': 'error',
       'no-shadow': 'off',
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
+      'no-unused-vars': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-shadow': ['error'],
       '@typescript-eslint/no-unused-vars': ['error'],
       'padding-line-between-statements': [
